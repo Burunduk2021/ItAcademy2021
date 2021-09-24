@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='default' />
+/// <binding />
 "use strict";
 
 const { watch, series } = require('gulp');
@@ -18,7 +18,7 @@ function compileSCSS(cb) {
         .pipe(sass().on('error', sass.logError))
         .pipe(rename(function (path) {
             path.dirname += "/css/";
-            path.basename += "";
+            path.basename += ".bundle";
             path.extname = ".css";
         }))
         .pipe(gulp.dest('./wwwroot/', { overwrite: true }));
@@ -33,8 +33,8 @@ function postCSS(cb) {
             cascade: false
         }))
         .pipe(rename(function (path) {
-            path.dirname += "/css/";
-            path.basename += "";
+            path.dirname += "/css/css-posted/";
+            path.basename += ".posted";
             path.extname = ".css";
         }))
         .pipe(gulp.dest('./wwwroot/', { overwrite: true }));
@@ -43,8 +43,8 @@ function postCSS(cb) {
 
 function minifyCSS(cb) {
     gulp
-        .src('wwwroot/css/*.css')
-        .pipe(newer('wwwroot/css/*.css'))
+        .src('wwwroot/css/css-posted/*.css')
+        .pipe(newer('wwwroot/css/css-posted/*.css'))
         .pipe(cleanCSS())
         .pipe(rename(function (path) {
             path.dirname += "/css/css-min/";
@@ -70,6 +70,9 @@ function minifyJS(cb) {
 }
 
 exports.default = function () {
-    watch('wwwroot/scss/*.scss', series(compileSCSS, postCSS, minifyCSS));
+    //watch('wwwroot/scss/*.scss', series(compileSCSS, postCSS, minifyCSS));
+    watch('wwwroot/scss/*.scss', compileSCSS);
+    watch('wwwroot/css/*.css', postCSS);
+    watch('wwwroot/css/css-posted/*.css', minifyCSS);
     watch('wwwroot/js/*.js', minifyJS);
 };

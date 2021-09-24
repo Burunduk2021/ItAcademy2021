@@ -1,0 +1,71 @@
+﻿@*@using WebAggregator.Models.Scaffold
+    @using WebAggregator.Models.Searcher
+    @using System.Globalization;
+    @model UserRequest
+    @{
+        List<Vacancy> list = ViewBag.vacs;
+
+        //UserReq - salary
+        Selected salarySelected = Model.salarySelected;
+        int noSalary = @Model.idList.Count - @Model.statistics.Where(s => s.Attribute == "SalaryBel").Count();
+        int selectedSalaryCount = Model.idList.Count();
+
+        //UserReq - location
+        string locShow = "";
+        if (Model.locationSelected == Selected.item) locShow = "show";
+
+        //UserReq - experience
+        string expShow = "";
+        if (Model.expSelected == Selected.item) expShow = "show";
+
+        //UserReq - JType
+        string jtypeShow = "";
+        if (Model.jtypeSelected == Selected.item) jtypeShow = "show";
+
+        //UserReq - JTime
+        string jtimeShow = "";
+        if (Model.jtimeSelected == Selected.item) jtimeShow = "show";
+
+        //UserReq - Source
+        string sourceShow = "";
+        if (Model.sourceSelected == Selected.item) sourceShow = "show";
+
+        //UserReq - Duplication
+        string switchedStatus;
+        if (Model.duplicationSwitcher == DuplicatedAttr.all)
+        {
+            switchedStatus = "unchecked";
+        }
+        else
+        {
+            switchedStatus = "checked";
+        }
+
+        //UserReq - Filter by date
+        int ever = (int)AdvReleased.ever;
+        int last7days = (int)AdvReleased.last7days;
+        int last3days = (int)AdvReleased.last3days;
+        int today = (int)AdvReleased.today;
+
+        //UserReq - Dataset order
+        int orderbyAsc = (int)OrderBy.asc;
+        int orderbyDesc = (int)OrderBy.desc;
+
+        string selectedAsc, selectedDesc;
+        if (Model.DatasetOrder == OrderBy.asc)
+        {
+            selectedAsc = "selected";
+            selectedDesc = "notSelected";
+        }
+        else
+        {
+            selectedAsc = "notSelected";
+            selectedDesc = "selected";
+        }
+
+
+
+        //Pagination
+        PagingInfo pageInf = ViewBag.pageinfo;
+
+    }*@

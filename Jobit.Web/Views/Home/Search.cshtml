@@ -1,0 +1,425 @@
+﻿@{
+    ViewData["Title"] = "Search";
+    Layout = "_Layout";
+}
+
+@*@Html.PartialAsync("_PartialModelForSearch")*@
+
+
+@section css{
+    <!-- BOOTSTRAP 4.6.0 -->
+    <!-- [slightly customed BS in accordance with specification without changes of core elements] -->
+    <link rel="stylesheet" href="~/css/css-min/Search.bundle.posted.min.css">
+}
+
+@section Header {
+
+    <header>
+        <nav class="navbar shadow justify-content-between w-100 px-2">
+            <div class="d-inline-flex">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/Logo.svg" alt="" class="logo align-self-center">
+                </a>
+                <div class="nav-item m-auto">
+                    <a class="nav-link unselectable" id="sidebar-toggle">
+                        <i class="bi bi-ui-checks"></i>&ensp;Фильтры
+                    </a>
+                </div>
+            </div>
+            <form class="form-inline">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-warning" type="submit">Найти!</button>
+                    </div>
+                </div>
+            </form>
+            <div class="d-inline-flex py-2">
+                <button class="btn btn-reg btn-jobit-60 rounded-pill mr-2 ">
+                    <i class="bi bi-card-checklist"></i>&ensp;Регистрация
+                </button>
+                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
+                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+                </a>
+            </div>
+        </nav>
+    </header>
+
+}
+
+<main class="d-flex" id="main-wrapper">
+    <!-- Sidebar -->
+    <nav class="bg-light border-right" id="sidebar-wrapper">
+        <ul class="list-group list-group-flush">
+
+            <!-- Search Results-->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <label class="font-weight-bold">
+                    Результат поиска: @*@Model.idList.Count.ToString()*@ позиций
+                </label>
+            </li>
+
+            <!-- Filter groups-->
+            <!-- SALARY -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#salary" aria-controls="salary">Зарплата (бел. руб.)</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#salary" aria-controls="salary"></span>
+                </p>
+                <div class="collapse" id="salary">
+                    @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                    @* @Html.PartialAsync("_PartialSelectedListForSearch")*@
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli sal px-2">
+                            <p class="m-0" flag-selected="false">Не указана</p>
+                            <span class="badge badge-warning badge-pill">
+                                100
+                            </span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli sal px-2">
+                            <p class="m-0" flag-selected="false">Указана</p>
+                            <span class="badge badge-warning badge-pill">
+                                25
+                            </span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli sal px-2">
+                            <p class="m-0" flag-selected="false">от 1000 бел. руб. </p>
+                            <span class="badge badge-warning badge-pill">
+                                30
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- SALARY SWITCHER: при переключении автоматически список выше меняет состояние  -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <div class="d-inline-flex custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input btn" @*@Model.salSwitcher.ToString()*@ id="only-with-salary">
+                    <label class="custom-control-label font-weight-bold" for="only-with-salary"> Только с указанной зарплатой </label>
+                </div>
+            </li>
+
+            <!--  REGION  -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#region" aria-controls="region">Регион</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#region" aria-controls="region"></span>
+                </p>
+                @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                @* @Html.PartialAsync("_PartialLocationForSearch")*@
+                <div class="collapse" @*@locShow*@ id="region">
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli reg px-2">
+                            <p class="m-0" flag-selected="false">Минск</p>
+                            <span class="badge badge-warning badge-pill">100</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli reg px-2">
+                            <p class="m-0" flag-selected="false">Минская обл.</p>
+                            <span class="badge badge-warning badge-pill">50</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli reg px-2">
+                            <p class="m-0" flag-selected="false">Могилевская обл.</p>
+                            <span class="badge badge-warning badge-pill">30</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- EXPERIENCE -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#experience" aria-controls="experience">Опыт работы</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#employment" aria-controls="employment"></span>
+                </p>
+                @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                @* @Html.PartialAsync("_PartialExperienceForSearch")*@
+                <div class="collapse" @*@expShow*@ id="experience">
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli exp px-2">
+                            <p class="m-0" flag-selected="false">Без опыта</p>
+                            <span class="badge badge-warning badge-pill">1</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli exp px-2">
+                            <p class="m-0" flag-selected="false">1 год</p>
+                            <span class="badge badge-warning badge-pill">5</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli exp px-2">
+                            <p class="m-0" flag-selected="false">2 года</p>
+                            <span class="badge badge-warning badge-pill">20</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli exp px-2">
+                            <p class="m-0" flag-selected="false">3 года и более</p>
+                            <span class="badge badge-warning badge-pill">50</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- EMPLOYMENT -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#employment" aria-controls="employment">Тип занятости</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#employment" aria-controls="employment"></span>
+                </p>
+                @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                @* @Html.PartialAsync("_PartialEmploymentForSearch")*@
+                <div class="collapse" @*@jtypeShow*@ id="employment">
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli empl px-2">
+                            <p class="m-0" flag-selected="false">Полная занятость</p>
+                            <span class="badge badge-warning badge-pill">100</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli empl px-2">
+                            <p class="m-0" flag-selected="false">Частичная занятость</p>
+                            <span class="badge badge-warning badge-pill">10</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- SHEDULE -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#schedule" aria-controls="schedule">График работы</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#schedule" aria-controls="schedule"></span>
+                </p>
+                @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                @* @Html.PartialAsync("_PartialSheduleForSearch")*@
+                <div class="collapse" @*@jtimeShow*@ id="schedule">
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli shed px-2">
+                            <p class="m-0" flag-selected="false">12 часов каждый день</p>
+                            <span class="badge badge-warning badge-pill">100</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli shed px-2">
+                            <p class="m-0" flag-selected="false">1 час в день</p>
+                            <span class="badge badge-warning badge-pill">2</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- JOB DATA SOURCE -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <p class="m-0">
+                    <label class="font-weight-bold" data-toggle="collapse" data-target="#job-data-source" aria-controls="job-data-source">Источник данных о вакансиях</label>
+                    <span class="bi bi-chevron-double-down" data-toggle="collapse" data-target="#job-data-source" aria-controls="job-data-source"></span>
+                </p>
+                @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+                @* @Html.PartialAsync("_PartialJobDataSourceForSearch")*@
+                <div class="collapse" @*@sourceShow*@ id="job-data-source">
+                    <ul class="card card-body p-1">
+                        <li class="d-flex justify-content-between align-items-center lightli job-source px-2">
+                            <p class="m-0" flag-selected="false">Работа by</p>
+                            <span class="badge badge-warning badge-pill">100</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center lightli job-source px-2">
+                            <p class="m-0" flag-selected="false">Praca by</p>
+                            <span class="badge badge-warning badge-pill">50</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- SWITCHER NO DUPLICATES: при переключении автоматически список выше меняет состояние  -->
+            <li class="nav-item list-group-item list-group-item-action list-group-item">
+                <div class="d-inline-flex custom-control custom-switch mb-5">
+                    <input type="checkbox" class="custom-control-input" @*@switchedStatus*@ id="no-duplicates">
+                    <label class="custom-control-label font-weight-bold" for="no-duplicates">Все сайты без дубликатов</label>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-start pl-4" id="content">
+            @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+            @* @Html.PartialAsync("_PartialOrderForSearch")*@
+            <!------------------ BY RELEASE DATE --------------->
+            <div class="px-2 pt-2">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text bg-jobit-80 text-white mb-3" for="inputGroupSelect01">Период: </label>
+                    </div>
+                    <select id="releaseDate" class="custom-select font-weight-bold mb-3">
+                        <option class="font-weight-bold" value="1" selected>за все время</option>
+                        <option class="font-weight-bold" value="2">за последнюю неделю</option>
+                        <option class="font-weight-bold" value="3">за последние 3 дня</option>
+                        <option class="font-weight-bold" value="4">за сегодня</option>
+                    </select>
+                </div>
+            </div>
+
+            <!------------------ BY ORDER --------------->
+            <div class="px-2 pt-2">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text bg-jobit-80 text-white mb-3" for="inputGroupSelect01">Дата публикации: </label>
+                    </div>
+                    <select id="orderBy" class="custom-select custom-select font-weight-bold mb-3">
+                        <option class="font-weight-bold" value="1" selected>по возрастанию</option>
+                        <option class="font-weight-bold" value="2">По убыванию</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @*Элемент ul с логикой выбора - НУЖНА СВЯЗЬ С ДАННЫМИ *@
+            @* @Html.PartialAsync("_PartialOrderForSearch")*@
+            <!-------- AGGREGATED ADDVERTISMENTS ------------->
+            <ul>
+                <li class="my-1">
+                    <div class="container vac-href">
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-between px-4 pt-1 my-0">
+                                <p class="vac-description text-jobit">2021-9-20</p>
+                                <p class="vac-description text-jobit">Praca.by</p>
+                            </div>
+                            <hr class="border-jobit-40"></hr>
+                            <div class="row justify-content-between px-4 my-0">
+                                <p class="vac-description accent">Верстальщик HTML</p>
+                                <p class="vac-description accent">1000 руб.</p>
+                            </div>
+                        </a>
+                        <!--EXCLUDE HEART FROM HREF AREA-->
+                        <div class="row justify-content-between px-4 my-1">
+                            <a href="#" class="vac-description" target="_blank">
+                                <span class="bi bi-building"></span>&ensp;Рога и копыта
+                            </a>
+                            <a @*asp-controller="Search" asp-action="SaveHeartClick" asp-route-vacID="@Model.VacId*@>
+                                <span class="bi bi-heart-fill pr-4 mb-0 pb-0"></span>
+                            </a>
+                        </div>
+
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-start px-4 my-0">
+                                <p class="vac-description text-dark"><span class="bi bi-geo-alt-fill"></span>&ensp;Минск</p>
+                            </div>
+
+                            <div class="row px-4">
+                                <p class="m-0">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                    Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="my-1">
+                    <div class="container vac-href">
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-between px-4 pt-1 my-0">
+                                <p class="vac-description text-jobit">2021-9-20</p>
+                                <p class="vac-description text-jobit">Praca.by</p>
+                            </div>
+                            <hr class="border-jobit-40"></hr>
+                            <div class="row justify-content-between px-4 my-0">
+                                <p class="vac-description accent">Верстальщик HTML</p>
+                                <p class="vac-description accent">1000 руб.</p>
+                            </div>
+                        </a>
+                        <!--EXCLUDE HEART FROM HREF AREA-->
+                        <div class="row justify-content-between px-4 my-1">
+                            <a href="#" class="vac-description" target="_blank">
+                                <span class="bi bi-building"></span>&ensp;Рога и копыта
+                            </a>
+                            <a @*asp-controller="Search" asp-action="SaveHeartClick" asp-route-vacID="@Model.VacId*@>
+                                <span class="bi bi-heart-fill pr-4 mb-0 pb-0"></span>
+                            </a>
+                        </div>
+
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-start px-4 my-0">
+                                <p class="vac-description text-dark"><span class="bi bi-geo-alt-fill"></span>&ensp;Минск</p>
+                            </div>
+
+                            <div class="row px-4">
+                                <p class="m-0">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                    Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</main>
+
+
+
+
+    @section js {
+        @* ------ Custom JS. Sidebar Toggle Script ------ *@
+        <script>
+            $("#sidebar-toggle").click(function (e) {
+                e.preventDefault();
+                $("#main-wrapper").toggleClass("toggled");
+            });
+        </script>
+
+        <!--JQuery UI-->
+        <script src="~/js\jquery-3.2.1.min.js" asp-append-version="true"></script>
+        <script src="~/js\jquery-ui-1.12.1\jquery-ui.min.js" asp-append-version="true"></script>
+
+
+        <script>
+            //ПОДСВЕТКА ЭЛЕМЕНТОВ ФИЛЬТРОВ
+            $('li.lightli')
+                .mouseover(function () {
+                    $(this).css({ "background-color": "MediumPurple", "color": "white", "border-radius": "10px" });
+                });
+            $('li.lightli')
+                .mouseout(function () {
+                    $(this).css({ "background-color": "White", "color": "rgb(36, 92, 197)" });
+
+                });
+
+            //SWITCHERS TO SERVER
+            //--Salary switcher
+            $('#only-with-salary').change(function () {
+                var uri = '/Search/FilterBySalarySwitcher';
+                document.location.href = uri;
+            });
+            //--No duplicates switcher
+            $('#no-duplicates')
+                .change(function () {
+                    var uri = '/Search/FilterByDuplicateSwitcher';
+                    document.location.href = uri;
+                });
+
+            //SELECTS TO SERVER
+            //--ORDER BY public date
+            $('#orderBy').on('change', function () {
+                var selected = $(this).val();
+                var uri = '/Search/OrderByFromSelect/' + selected;
+                document.location.href = uri;
+            });
+
+            //--Filter by public date (SELECT)
+            $('#releaseDate').on('change', function () {
+                var selected = $(this).val();
+                var uri = '/Search/FilterByDate/' + selected;
+                document.location.href = uri;
+            });
+
+
+        </script>
+
+
+    }

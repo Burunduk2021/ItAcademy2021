@@ -1,15 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Log-in";
     Layout = "_Layout";
 }
-
-@*@Html.PartialAsync("_PartialModelForSearch")*@
-
 
 @section css{
     <!-- BOOTSTRAP 4.6.0 -->
     <!-- [slightly customed BS in accordance with specification without changes of core elements] -->
     <link rel="stylesheet" href="~/css/css-min/Search.bundle.posted.min.css">
+
 }
 
 @section Header {
@@ -21,19 +19,29 @@
                     <img src="/Logo.svg" alt="" class="logo align-self-center">
                 </a>
             </div>
-            <form class="form-inline">
-                        <button class="btn btn-warning" type="submit"  asp-action="Search">Вкладка ПОИСК!</button>
-            </form>
             <div class="d-inline-flex py-2">
                 <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-action="Registration">
                     <i class="bi bi-card-checklist"></i>&ensp;Регистрация
-                </a>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
-                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
                 </a>
             </div>
         </nav>
     </header>
 
 }
+
+
+<main class="d-flex justify-content-center bg-gradient">
+    <div class="align-self-center">
+        <form class="form-signin text-center">
+            <img src="/Logo.svg" alt="" class="logo align-self-center">
+            <h1 class="h3 mb-3 font-weight-normal">Авторизация пользователя</h1>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Введите e-mail" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Введите пароль" required>
+            <button class="btn btn-lg btn-jobit-80 btn-block" type="submit">Войти</button>
+            <p class="mt-5 mb-3 text-muted">&copy;2021</p>
+        </form>
+    </div>
+</main>
+
+
 

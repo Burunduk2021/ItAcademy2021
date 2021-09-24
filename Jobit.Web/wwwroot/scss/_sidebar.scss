@@ -1,0 +1,55 @@
+﻿/*
+* Sidebar (global component)
+*/
+$sidebar-width: 18rem;
+
+#sidebar-toggle {
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+#main-wrapper {
+    overflow-x: hidden;
+    
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -$sidebar-width; // minus<value>
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+
+    &.sidebar-heading {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.2rem;
+    }
+
+    &.list-group {
+        width: $sidebar-width;
+
+        &.list-group-item[data-toggle="collapse"] {
+            font-weight: 500;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #main-wrapper.toggled #sidebar-wrapper {
+        margin-left: -$sidebar-width; // minus<value>
+    }
+}
+
+
+

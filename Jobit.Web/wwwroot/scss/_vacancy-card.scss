@@ -1,0 +1,45 @@
+﻿a {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.vac-href {
+    border: 0.5px gray dashed;
+    color: black;
+
+    &:hover {
+        box-shadow: 0px 0px 24px 5px rgba(81, 16, 245, 0.20);
+        padding: 2px;
+    }
+}
+
+.vac-description {
+    font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+.accent {
+    font-size: 1.5rem;
+}
+
+.bi-heart-fill {
+    color: gray;
+    font-weight: bold;
+    font-size: x-large;
+
+    &:hover {
+        color: orange;
+    }
+}
+
+.bi-geo-alt-fill, .bi-building {
+    color: rebeccapurple;
+    font-weight: bold;
+    font-size: x-large;
+}

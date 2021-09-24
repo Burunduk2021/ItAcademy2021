@@ -1,0 +1,140 @@
+﻿
+    <!-- Filter groups-->
+    <!-- SALARY -->
+    @*<li class="nav-item">
+        <p>
+            <label data-toggle="collapse" data-target="#salary" aria-controls="salary">Зарплата (бел. руб.)</label>
+            <span class="icon-chevron-down" data-toggle="collapse" data-target="#salary" aria-controls="salary"></span>
+        </p>
+        @if (salarySelected == Selected.item)
+        {
+            <div class="collapse show" id="salary" style="margin-top: -20px">
+                <ul class="card card-body" style="padding: 5px !important">
+                    <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@Model.salaryF" asp-route-salaryStr="test">
+                        <li class="d-flex justify-content-between align-items-center lightli sal">
+                            <i style="font-style: normal;" flag-selected="false">@Model.salaryDescr</i>
+                            <span class="badge badge-primary badge-pill">
+                                @selectedSalaryCount
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div class="collapse" id="salary" style="margin-top: -20px">
+                <ul class="card card-body" style="padding: 5px !important">
+
+                    @if (noSalary > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.unkown" asp-route-salaryStr="Не указана">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false">Не указана</i>
+                                <span class="badge badge-primary badge-pill">
+                                    @noSalary
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.allWithSalary" asp-route-salaryStr="Указана">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false">Указана</i>
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(obj => (obj.Attribute == "SalaryBel")).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 1000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from1000" asp-route-salaryStr=" от 1000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false"> от 1000 бел. руб. </i>
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 1000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 2000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from2000" asp-route-salaryStr=" от 2000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+
+                                <i style="font-style: normal;" flag-selected="false"> от 2000 бел. руб.</i>
+
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 2000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 3000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from3000" asp-route-salaryStr=" от 3000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false">от 3000 бел. руб.</i>
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 3000f)).Count()
+                                </span>
+
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 4000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from4000" asp-route-salaryStr=" от 4000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+
+                                <i style="font-style: normal;" flag-selected="false">от 4000 бел. руб.</i>
+
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 4000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 5000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from5000" asp-route-salaryStr=" от 5000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+
+                                <i style="font-style: normal;" flag-selected="false">от 5000 бел. руб.</i>
+
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 5000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 6000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from6000" asp-route-salaryStr=" от 6000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false">от 6000 бел. руб.</i>
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 6000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                    @if (Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 7000f)).Count() > 0)
+                    {
+                        <a asp-controller="Search" asp-action="FilterBySalary" asp-route-filter="@SalaryFilter.from7000" asp-route-salaryStr=" от 7000 бел. руб.">
+                            <li class="d-flex justify-content-between align-items-center lightli sal">
+                                <i style="font-style: normal;" flag-selected="false">от 7000 бел. руб.</i>
+                                <span class="badge badge-primary badge-pill">
+                                    @Model.statistics.Where(s => s.Attribute == "SalaryBel").Where(o => (Convert.ToSingle(o.Value, new CultureInfo("en-US")) >= 7000f)).Count()
+                                </span>
+                            </li>
+                        </a>
+                    }
+                </ul>
+            </div>
+        }
+    </li>*@
+
+

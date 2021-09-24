@@ -1,0 +1,68 @@
+﻿      <!-------- AGGREGATED ADDVERTISMENTS ------------->
+@*@if (list != null)
+    {
+        <ul class="list-appl-vac" style="margin-top: 50px">
+            @foreach (Vacancy v in list)
+            {
+                @await Html.PartialAsync("_ReqItem", v)
+            }
+        </ul>
+    }
+    <div page-model="@pageInf" page-action="Index" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-jobit-80"
+         page-class-selected="btn-warning" class="btn-group pull-right m-1">
+    </div>*@
+
+
+
+@*@using WebAggregator.Models.Scaffold
+@model Vacancy
+
+@if (@Model != null)
+{
+    <li class="list-item-appl-vac">
+        <div class="container appl-vac appl-href">
+            <a href="@Model.Source.Source" target="_blank">
+                <div class="row align-middle">
+                    <div class="col-md-3 appl-vac-datetime"> @Model.ReleaseDate.ToString().Substring(0, 10) </div>
+                    <div class="col-md-8 appl-vac-source"> @Model.Source.Prim.PrimSource </div>
+                </div>
+                <hr id="line-lll"></hr>
+                <div class="row">
+                    <div class="col-md-6 appl-vac-vacancy"> @Model.VTitle  </div>
+                    <div class="col-md-3 appl-vac-money"> @Model.SalaryOr</div>
+                </div>
+            </a>
+            EXCLUDE HEART FROM HREF AREA
+            <div class="row">
+                <div class="col-md-9 appl-vac-company">
+                    <a href="@Model.Source.Source" target="_blank">
+                        <span class="icon-layers"></span>@Model.Emp.CompName
+                    </a>
+                </div>
+                <div class="col-md-2 appl-icon-heart-block">
+                    <a asp-controller="Search" asp-action="SaveHeartClick" asp-route-vacID="@Model.VacId">
+                        <span class="icon-heart"></span>
+                    </a>
+                </div>
+            </div>
+            <a href="@Model.Source.Source" target="_blank">
+                <div class="row">
+                    <div class="col-md-12 appl-vac-address"><span class="icon-my_location"></span>@Model.Loc.Locality</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 appl-vac-description">
+                        @if (@Model.Description.Length > 300)
+                        {
+                            @Model.Description.Substring(0, 300)
+                        }
+                        else
+                        {
+                            @Model.Description
+                        }
+                    </div>
+                </div>
+            </a>
+        </div>
+    </li>
+}*@

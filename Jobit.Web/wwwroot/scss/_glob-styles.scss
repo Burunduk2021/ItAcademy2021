@@ -1,0 +1,103 @@
+﻿/* ******************* GLOBAL SETTINGS ****************************** /
+/* ******************* BS CUSTOMIZATION ***************************** /
+/* SCSS Variables */
+$font-primary: 'Cormorant', serif;
+$font-rubric: 'Yeseva One', cursive;
+$theme-colors: ("jobit": rgba(81, 16, 245, 1), "jobit-80": rgba(81, 16, 245, 0.80), "jobit-60": rgba(81, 16, 245, 0.60), "jobit-40": rgba(81, 16, 245, 0.40), "jobit-20": rgba(81, 16, 245, 0.20));
+
+/* Import custom global components /
+/ ****************** TABLES - DataTables for BS-4 *************** /
+/! DataTables 
+ * Copyright (C) 2008-2021, SpryMedia Ltd.
+ * Licensed under MIT (https://datatables.net/license/mit#MIT-license) */
+@import "../lib/bootstrap-4.6.0/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&family=Yeseva+One&display=swap');
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.bg-gradient {
+    background: linear-gradient(lightgray, white);
+}
+
+
+/* Global settings - custom code */
+html {
+    min-height: 100vh;
+    font-size: 20px;
+    background-color: white;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: 1rem;
+}
+
+header {
+    background-color: gray;
+    @extend .p-0;
+    @extend .m-0;
+
+    nav {
+        @extend .p-0;
+        flex-direction: row;
+        align-items: stretch;
+
+        a {
+            @extend .p-0;
+            cursor: pointer;
+
+
+            .logo {
+                @extend .p-0;
+                @extend .m-0;
+                height: 4rem;
+                width: 8rem;
+            }
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+
+        .btn-reg {
+            @extend .p-0;
+            width: 8rem;
+            height: 75%;
+            vertical-align: text-top;
+            display: inline-block;
+        }
+    }
+}
+
+main {
+    min-height: 100vh;
+}
+
+
+
+footer {
+    @extend .d-flex;
+    @extend .text-muted;
+    height: 1.5rem;
+/*    background-color: whitesmoke;*/
+    background-color: lightgray;
+    justify-content: center;
+    z-index: 10000;
+    margin-top: auto;
+
+    div {
+        align-self: center;
+    }
+}
+
+.footer-text {
+    font-family: $font-rubric;
+    font-size: 1rem;
+}

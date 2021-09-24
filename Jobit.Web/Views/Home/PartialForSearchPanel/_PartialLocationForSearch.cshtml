@@ -1,0 +1,13 @@
+﻿@*<div class="collapse @locShow" id="region">
+    <ul class="card card-body">
+        @foreach (SqlEntityStatistics stat in Model.statistics.Where(s => s.Attribute == "Location"))
+        {
+            <a asp-controller="Search" asp-action="FilterByLocation" asp-route-itemDescript="@stat.Value">
+                <li class="d-flex justify-content-between align-items-center lightli reg">
+                    <p class="p-0 m-0" flag-selected="false">@stat.Value</p>
+                    <span class="badge badge-warning badge-pill">@stat.Count</span>
+                </li>
+            </a>
+        }
+    </ul>
+</div>*@

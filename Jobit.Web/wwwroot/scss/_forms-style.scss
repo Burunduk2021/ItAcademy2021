@@ -1,0 +1,19 @@
+﻿.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: mediumpurple;
+    border-color: rebeccapurple;
+}
+
+.custom-select:focus {
+    border-color: mediumslateblue;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: gold;
+    box-shadow: none;
+}
+
+.custom-select:focus {
+    border-color: gold;
+}
+

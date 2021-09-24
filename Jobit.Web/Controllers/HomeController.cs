@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Jobit.Web.Controllers
 {
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None, Duration = 0)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -23,6 +24,22 @@ namespace Jobit.Web.Controllers
             return View();
         }
 
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        public IActionResult Registration()
+        {
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
@@ -32,6 +49,11 @@ namespace Jobit.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Test()
+        {
+            return View();
         }
     }
 }

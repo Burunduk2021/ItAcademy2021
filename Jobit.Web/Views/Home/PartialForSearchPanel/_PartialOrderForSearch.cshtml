@@ -1,0 +1,69 @@
+﻿<!------------------ Order --------------->
+@*<div class="row" id="content">
+    @if (Model.releaseDate == AdvReleased.ever)
+    {
+
+        <div class="col-md-6">
+            <select id="releaseDate" class="custom-select custom-select-lg mb-3">
+                <option value="@ever" selected>за весь период</option>
+                <option value="@last7days">за последнюю неделю</option>
+                <option value="@last3days">за последние 3 дня</option>
+                <option value="@today">за сегодня</option>
+            </select>
+        </div>
+    }
+    @if (Model.releaseDate == AdvReleased.last7days)
+    {
+        <div class="col-md-6">
+            <select id="releaseDate" class="custom-select custom-select-lg mb-3">
+                <option value="@ever">за весь период</option>
+                <option value="@last7days" selected>за последнюю неделю</option>
+                <option value="@last3days">за последние 3 дня</option>
+                <option value="@today">за сегодня</option>
+            </select>
+        </div>
+    }
+    @if (Model.releaseDate == AdvReleased.last3days)
+    {
+        <div class="col-md-6">
+            <select id="releaseDate" class="custom-select custom-select-lg mb-3">
+                <option value="@ever">за весь период</option>
+                <option value="@last7days">за последнюю неделю</option>
+                <option value="@last3days" selected>за последние 3 дня</option>
+                <option value="@today">за сегодня</option>
+            </select>
+        </div>
+    }
+    @if (Model.releaseDate == AdvReleased.today)
+    {
+        <div class="col-md-6">
+            <select id="releaseDate" class="custom-select custom-select-lg mb-3">
+                <option value="@ever">за весь период</option>
+                <option value="@last7days">за последнюю неделю</option>
+                <option value="@last3days">за последние 3 дня</option>
+                <option value="@today" selected>за сегодня</option>
+            </select>
+        </div>
+    }
+
+
+    ---------------- BY ORDER -------------
+    @if (Model.DatasetOrder == OrderBy.asc)
+    {
+        <div class="col-md-6">
+            <select id="orderBy" class="custom-select custom-select-lg mb-3">
+                <option value="@orderbyAsc" selected>по дате публикации: возрастание</option>
+                <option value="@orderbyDesc">по дате публикации: убывание </option>
+            </select>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6">
+            <select id="orderBy" class="custom-select custom-select-lg mb-3">
+                <option value="@orderbyAsc">по дате публикации: возрастание</option>
+                <option value="@orderbyDesc" selected>по дате публикации: убывание </option>
+            </select>
+        </div>
+    }
+</div>*@
