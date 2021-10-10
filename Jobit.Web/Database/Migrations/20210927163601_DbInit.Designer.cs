@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jobit.Web.Database.Migrations
 {
     [DbContext(typeof(JobitDbContext))]
-    [Migration("20210924074309_DbInit")]
+    [Migration("20210927163601_DbInit")]
     partial class DbInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

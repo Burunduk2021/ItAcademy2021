@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "_Layout";
+}
+
+@section css{
+    <!-- BOOTSTRAP 4.6.0 -->
+    <!-- [slightly customed BS in accordance with specification without changes of core elements] -->
+    <link rel="stylesheet" href="~/css/css-min/Search.bundle.posted.min.css">
+
+}
+
+
+@section Header {
+
+    <header>
+        <nav class="navbar shadow justify-content-between w-100 px-2">
+            <div class="d-inline-flex">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/Logo.svg" alt="" class="logo align-self-center">
+                </a>
+            </div>
+            <div class="d-inline-flex py-2">
+                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
+                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+                </a>
+            </div>
+        </nav>
+    </header>
+
+}
+
+<div class="container vh-100">
+    <div class="row">
+        <div class="col">
+            <h3 class="mb-3 ">Роли пользователей</h3>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <table class="table table-sm table-bordered">
+            <tr><th>ID</th><th>Роль</th><th>Пользователи</th><th></th></tr>
+            @if (Model.Count() == 0)
+            { <tr><td colspan="4" class="text-center">Роли отсутствуют</td></tr>}
+            else
+            {
+                foreach (var role in Model)
+                { <tr>
+                    <td>@role.Id</td>
+                    <td>@role.Name</td>
+                    <td identity-role="@role.Id"></td>
+                    <td>
+                    <form asp-action="DeleteRole" asp-rote-id="@role.Id" method="post">
+                        <a class="btn btn-sm btn-success" asp-action="EditRole" asp-route-id="@role.Id">Изменить</a>
+                        <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                    </form>
+                    </td>
+                </tr>
+                }
+            }
+            </table>
+            <a class="btn btn-primary" asp-action="CreateRole">Создать роль</a>
+        </div>
+    </div>
+</div>
+
+

@@ -8,8 +8,8 @@ namespace Jobit.DAL.Entities.Identity
 {
     public static class AppUserRole
     {
-        public static readonly string admin = "администратор";
-        public static readonly string user = "пользователь";
+        public const string admin = "администратор";
+        public const string user = "пользователь";
 
         public static readonly string[] rolesArray = new string[] { admin, user };
     }

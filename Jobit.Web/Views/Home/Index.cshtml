@@ -25,10 +25,16 @@
                         <button class="btn btn-warning" type="submit"  asp-action="Search">Вкладка ПОИСК!</button>
             </form>
             <div class="d-inline-flex py-2">
-                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-action="Registration">
+                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="RoleAdmin" asp-action="RoleManagement">
+                    <i class="bi bi-card-checklist"></i>&ensp;Роли
+                </a>
+                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="Admin" asp-action="UserManagement">
+                    <i class="bi bi-card-checklist"></i>&ensp;Юзеры
+                </a>
+                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="Account" asp-action="Registration">
                     <i class="bi bi-card-checklist"></i>&ensp;Регистрация
                 </a>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
+                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-controller="Account" asp-action="Login">
                     <i class="bi bi-box-arrow-right "></i>&ensp;Войти
                 </a>
             </div>

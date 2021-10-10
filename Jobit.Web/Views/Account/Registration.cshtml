@@ -1,4 +1,6 @@
-﻿@{
+﻿@model CreateUserModel
+
+@{
     ViewData["Title"] = "Registration";
     Layout = "_Layout";
 }
@@ -34,18 +36,19 @@
     <div class="row">
         <div class="col">
             <h3 class="mb-3 ">Регистрационные данные:</h3>
-            <form class="needs-validation" novalidate>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form asp-controller="Account" asp-action="Registration" method="post" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="font-weight-bold" for="firstName">Имя</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <label asp-for="UserFirstName" class="font-weight-bold">Имя</label>
+                        <input asp-for="UserFirstName" type="text" class="form-control" placeholder="" value="" required>
                         <div class="invalid-feedback">
-                            Введите корректное имя.
+                            Введите Ваше имя.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="font-weight-bold" for="lastName">Фамилия</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        <label for="UserLastName" class="font-weight-bold" >Фамилия</label>
+                        <input id="UserLastName" type="text" class="form-control" placeholder="" value="" disabled>
                         <div class="invalid-feedback">
                             Введите корректную фамилию.
                         </div>
@@ -54,20 +57,20 @@
 
                 <div class="row">
                     <div class="col-md-8 mb-3">
-                        <label class="font-weight-bold" for="Email">E-mail</label>
+                        <label asp-for="Email" class="font-weight-bold">E-mail</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@@</span>
                             </div>
-                            <input type="text" class="form-control" id="Email" placeholder="" value="" required>
+                            <input asp-for="Email" type="text" class="form-control" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Введите валидный e-mail.
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold" for="Password">Пароль</label>
-                        <input type="password" class="form-control" id="Password" placeholder="" value="" required>
+                        <label asp-for="Password" class="font-weight-bold">Пароль</label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Введите валидный пароль.
                         </div>

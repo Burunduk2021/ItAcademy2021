@@ -1,4 +1,6 @@
-﻿@{
+﻿@model LoginModel
+
+@{
     ViewData["Title"] = "Log-in";
     Layout = "_Layout";
 }
@@ -32,14 +34,17 @@
 
 <main class="d-flex justify-content-center bg-gradient">
     <div class="align-self-center">
-        <form class="form-signin text-center">
-            <img src="/Logo.svg" alt="" class="logo align-self-center">
-            <h1 class="h3 mb-3 font-weight-normal">Авторизация пользователя</h1>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Введите e-mail" required autofocus>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Введите пароль" required>
-            <button class="btn btn-lg btn-jobit-80 btn-block" type="submit">Войти</button>
+        <img src="/Logo.svg" alt="" class="logo align-self-center">
+        <h1 class="h3 mb-3 font-weight-normal">Авторизация пользователя</h1>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-controller="Account" asp-action="Login" method="post" class="form-signin text-center">
+            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl">
+            <input asp-for="Email" type="email" class="form-control" placeholder="Введите e-mail" required autofocus>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Введите пароль" required>
+            <button class="btn btn-lg btn-jobit-80 btn-block my-2" type="submit">Войти</button>
             <p class="mt-5 mb-3 text-muted">&copy;2021</p>
         </form>
+
     </div>
 </main>
 

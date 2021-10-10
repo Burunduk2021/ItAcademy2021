@@ -36,7 +36,7 @@ namespace Jobit.Web.Controllers
 
         public IActionResult Registration()
         {
-            return View();
+            return RedirectToAction("Registration", "Account");
         }
 
 

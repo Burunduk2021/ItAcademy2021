@@ -5,10 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using Jobit.Web.Models;
 
 namespace Jobit.Web.Database
 {
-    class JobitDbContext : IdentityDbContext
+    class JobitDbContext : IdentityDbContext<AppUser>
     {
         public JobitDbContext(DbContextOptions<JobitDbContext> options) : base(options)
         {
@@ -48,13 +49,13 @@ namespace Jobit.Web.Database
             }
 
             //Создать первую учетную запись при первом запуске приложения
-            UserManager<IdentityUser> userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            UserManager<AppUser> userManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
             string name = configuration["Data:AdminUser:Name"];
             string email = configuration["Data:AdminUser:Email"];
             string password = configuration["Data:AdminUser:Password"];
             if (await userManager.FindByEmailAsync(email) == null)
             {
-                IdentityUser user = new IdentityUser
+                AppUser user = new AppUser
                 {
                     Email = email,
                     UserName = name

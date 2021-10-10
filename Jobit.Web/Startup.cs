@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Jobit.Web.Database;
+using Jobit.Web.Models;
 
 namespace Jobit.Web
 {
@@ -28,10 +29,12 @@ namespace Jobit.Web
             services.AddDbContext<JobitDbContext>(options => options.UseSqlServer(Configuration["Data:AsmGpirDb:ConnectionString"]));
             
             //Identity configuration
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<JobitDbContext>()
-                .AddDefaultTokenProviders();
-            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Identity/Account/Login");
+            services.AddIdentity<AppUser, IdentityRole>(opts=> {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 6;
+            }).AddEntityFrameworkStores<JobitDbContext>()
+            .AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Account/Login");
             
             //Dependency injections
 
