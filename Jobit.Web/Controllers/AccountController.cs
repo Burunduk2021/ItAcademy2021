@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
+using Jobit.BLL.Models.Identity;
 
 namespace Jobit.Web.Controllers
 {
@@ -15,11 +16,13 @@ namespace Jobit.Web.Controllers
     public class AccountController : Controller
     {
         private UserManager<AppUser> userManager;
+        private RoleManager<IdentityRole> roleManager;
         private SignInManager<AppUser> signInManager;
 
-        public AccountController(UserManager<AppUser> usrMgr, SignInManager<AppUser> signinMrg)
+        public AccountController(UserManager<AppUser> usrMgr, RoleManager<IdentityRole> roleMgr, SignInManager<AppUser> signinMrg)
         {
             userManager = usrMgr;
+            roleManager = roleMgr;
             signInManager = signinMrg;
         }
 
@@ -41,12 +44,20 @@ namespace Jobit.Web.Controllers
                 if (user != null) {
                     await signInManager.SignOutAsync();
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, details.Password, false, false);
-                    if (result.Succeeded) { return Redirect(returnUrl ?? "/"); }
+                    if (result.Succeeded) 
+                    {
+                        string userRole = (await userManager.GetRolesAsync(user)).First();
+                        if (userRole == UserRoles.Admin)
+                            return RedirectToAction("Index",  "Admin");
+                        else // userRole = UserRoles.User
+                            return RedirectToAction("UserProps", "User");
+                    }
                 }
             ModelState.AddModelError(nameof(LoginModel.Email), "Неверный логин или пароль.");
             }
             return View(details);
         }
+
 
         [AllowAnonymous]
         public ViewResult Registration()
@@ -57,21 +68,26 @@ namespace Jobit.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registration(CreateUserModel model) 
+        public async Task<IActionResult> Registration(UserModel model) 
         {
             if (ModelState.IsValid)
             {
                 AppUser user = new AppUser
                 {
                     UserName = model.UserFirstName,
-                    //LastName = model.UserLastName,
-                    Email = model.Email
+                    LastName = model.UserLastName,
+                    Email = model.Email,
+                    Gender = model.Gender,
+                    Region = model.Region,
+                    Age = model.Age,
+                    Experience = model.Experience
                 };
 
                 IdentityResult result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
-                { 
+                {
+                    await userManager.AddToRoleAsync(user, DAL.Entities.Identity.AppUserRole.user);
                     return RedirectToAction("Index", "Home");  
                 }
                 else

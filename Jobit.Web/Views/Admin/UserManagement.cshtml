@@ -15,48 +15,106 @@
 
 @section Header {
 
-    <header>
-        <nav class="navbar shadow justify-content-between w-100 px-2">
-            <div class="d-inline-flex">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Logo.svg" alt="" class="logo align-self-center">
-                </a>
-            </div>
-            <div class="d-inline-flex py-2">
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
-                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
-                </a>
-            </div>
-        </nav>
-    </header>
-
+    <a class="nav-link active p-2 menu" asp-action="Index">
+        <i class="bi bi-diagram-3-fill"></i>&ensp;Агрегатор
+    </a>
+    <a class="nav-link p-2 menu border-bottom" asp-action="UserManagement">
+        <i class="bi bi-people-fill"></i>&ensp;Пользователи
+    </a>
+    <a class="nav-link  p-2 menu" asp-action="AdminProps">
+        <i class="bi bi-gear-fill"></i>&ensp;Аккаунт
+    </a>
+    <a class="nav-link  p-2 menu" asp-action="Logs">
+        <i class="bi bi-journal-text"></i>&ensp;Логи
+    </a>
+    <a class="btn btn-reg btn-jobit-60 rounded-pill ml-auto" asp-controller="Account" asp-action="Logout">
+        <i class="bi bi-box-arrow-right "></i>&ensp;Выйти
+    </a>
 }
 
-<div class="container vh-100">
-    <div class="row">
-        <div class="col">
-            <h3 class="mb-3 ">Аккаунты пользователей</h3>
-            <table class="table table-sm table-bordered">
-                @if (Model.Count() == 0) {
-                <tr><td colspan="3" class="text-center">Зарегистрированные пользователи<td></tr>
-                }
-                else {
-                    foreach (AppUser user in Model) { 
-                    <tr>
-                        <td>@user.Id</td>
-                        <td>@user.UserName</td>
-                        <td>@user.Email</td>
-                        <td>
-                            <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                              <button type="submit" class="btn btn-sm btn-dark">Удалить</button>
-                            </form>
-                        </td>
+<div class="col-12 p-0">
+    <div class="d-flex vh-100 justify-content-center">
+        <div class="col-lg-8">
+            <h4 class="my-3 font-weight-bold">Пользователи:</h4>
+            <table class="table table-bordered table-hover table-sm" id="main-table">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th scope="col" class="w-">Имя</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Дата входа</th>
+                        <th scope="col">Роль</th>
+                        <th scope="col">Изменить роль</th>
+                        <th scope="col">Удалить</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr><td colspan="3" class="text-center">Зарегистрированные пользователи отсутствуют.<td></tr>
                     }
-                }
-            </table>          
+                    else
+                    {
+                        foreach (AppUser user in Model)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>@user.Email</td>
+                                <td>
+                                    Не настроена
+                                </td>
+                                <td user-role="@user.Id"></td>
+                                <td class="text-center">
+                                    <form asp-action="ChangeRole" asp-route-id="@user.Id" method="post">
+                                        <button type="submit" class="btn btn-warning bi-layer-forward"></button>
+                                    </form>
+                                </td>
+                                <td class="text-center">
+                                    <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post">
+                                        <button type="submit" class="btn btn-dark  bi-person-x-fill"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+
+
+
         </div>
     </div>
 </div>
 
+@section js {
+
+    <!-- JS. BS Datatables-->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+    <script>
+        /*[JQuery DataTable]*/
+        $(document).ready(function () {
+            // DataTable
+            $('#main-table').DataTable({
+                //save current table state
+                stateSave: true,
+                //dom-model
+                "dom": "<'row'<'col-auto mr-auto'i><'col-auto'f>>",
+                //"dom": 'fti' ,
+                //language: my localization
+                "language": {
+                    //(!) remember about possible mistakes during ordering in IE (see FAQ)
+                    "emptyTable": "Записей не найдено.",
+                    "infoEmpty": "Записей не найдено.",
+                    "info": "Страница _PAGE_ из _PAGES_. Записей всего: _MAX_.",
+                    "infoFiltered": "Записей после фильтров: _TOTAL_. ",
+                    "search": "Поиск по всем полям:",
+                    "zeroRecords": "При поиске совпадений не найдено.",
+                    "infoPostFix": "",
+                }
+            });
+        });
+    </script>
+}
 

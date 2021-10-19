@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace Jobit.Web.Models
+{
+    public enum Genders
+    {
+        [Description("Мужской")]
+        male,
+        [Description("Женский")]
+        female
+    }
+}

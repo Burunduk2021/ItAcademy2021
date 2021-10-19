@@ -29,16 +29,6 @@ namespace Jobit.Web.Controllers
             return View();
         }
 
-        public IActionResult LogIn()
-        {
-            return View();
-        }
-
-        public IActionResult Registration()
-        {
-            return RedirectToAction("Registration", "Account");
-        }
-
 
         public IActionResult Privacy()
         {

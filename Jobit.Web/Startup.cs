@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -5,8 +6,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Jobit.Web.Database;
 using Jobit.Web.Models;
+using Jobit.Web.Infrastructure.FileLogger;
+using ElmahCore;
+using ElmahCore.Mvc;
 
 namespace Jobit.Web
 {
@@ -23,11 +28,9 @@ namespace Jobit.Web
         public void ConfigureServices(IServiceCollection services)
         {
             //MVC infrastucture configuration
-            services.AddControllersWithViews();
-            
+            services.AddControllersWithViews();           
             //SQL Db and repositories settings
             services.AddDbContext<JobitDbContext>(options => options.UseSqlServer(Configuration["Data:AsmGpirDb:ConnectionString"]));
-            
             //Identity configuration
             services.AddIdentity<AppUser, IdentityRole>(opts=> {
                 opts.User.RequireUniqueEmail = true;
@@ -35,13 +38,22 @@ namespace Jobit.Web
             }).AddEntityFrameworkStores<JobitDbContext>()
             .AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Account/Login");
-            
-            //Dependency injections
+
+            //ElmahCore
+            services.AddElmah(opts =>
+            {
+                opts.Path = "/Admin/Logs";
+                opts.OnPermissionCheck = context => context.User.Identity.IsAuthenticated;
+            });
+            services.AddElmah<XmlFileErrorLog>(options =>
+            {
+                options.LogPath = "~/logs";
+            });
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +75,9 @@ namespace Jobit.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //ElmahCore
+            app.UseElmah();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -70,8 +85,19 @@ namespace Jobit.Web
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //Create two user-roles and first admin account
+            //Create first admin account
             JobitDbContext.CreateAdminAccountAsync(app.ApplicationServices, Configuration).Wait();
+
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "log.txt"), (level) => 
+                {
+                if (level == LogLevel.Warning)
+                { return true; }
+                    return false;
+            });
+            var logger = loggerFactory.CreateLogger("FileLogger");
+
+
+
         }
     }
 }

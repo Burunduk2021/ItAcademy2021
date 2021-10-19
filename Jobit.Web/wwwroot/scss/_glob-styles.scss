@@ -29,6 +29,7 @@ $theme-colors: ("jobit": rgba(81, 16, 245, 1), "jobit-80": rgba(81, 16, 245, 0.8
 
 /* Global settings - custom code */
 html {
+    min-width: 100vh;
     min-height: 100vh;
     font-size: 20px;
     background-color: white;
@@ -37,22 +38,17 @@ html {
 body {
     font-family: $font-primary;
     font-size: 1rem;
+    min-height: 100vh;
 }
 
-header {
-    background-color: gray;
-    @extend .p-0;
-    @extend .m-0;
 
+header {
     nav {
-        @extend .p-0;
-        flex-direction: row;
-        align-items: stretch;
+        background-color: gray;
 
         a {
             @extend .p-0;
             cursor: pointer;
-
 
             .logo {
                 @extend .p-0;
@@ -76,28 +72,8 @@ header {
     }
 }
 
-main {
-    min-height: 100vh;
-}
-
-
-
 footer {
-    @extend .d-flex;
     @extend .text-muted;
-    height: 1.5rem;
-/*    background-color: whitesmoke;*/
     background-color: lightgray;
-    justify-content: center;
-    z-index: 10000;
-    margin-top: auto;
-
-    div {
-        align-self: center;
-    }
 }
 
-.footer-text {
-    font-family: $font-rubric;
-    font-size: 1rem;
-}

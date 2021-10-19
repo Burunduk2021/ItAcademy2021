@@ -1,4 +1,4 @@
-﻿@model CreateUserModel
+﻿ @model UserModel
 
 @{
     ViewData["Title"] = "Registration";
@@ -15,27 +15,16 @@
 
 @section Header {
 
-    <header>
-        <nav class="navbar shadow justify-content-between w-100 px-2">
-            <div class="d-inline-flex">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Logo.svg" alt="" class="logo align-self-center">
-                </a>
-            </div>
-            <div class="d-inline-flex py-2">
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
-                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
-                </a>
-            </div>
-        </nav>
-    </header>
+    <div class="ml-auto my-1">
+        <a class="btn btn-reg btn-jobit-60 rounded-pill ml-2" asp-controller="Account" asp-action="Login">
+            <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+        </a>
+    </div>
 
 }
 
-<div class="container vh-100">
-    <div class="row">
-        <div class="col">
-            <h3 class="mb-3 ">Регистрационные данные:</h3>
+        <div class="col-lg-6 pb-3">
+            <h4 class="my-3 font-weight-bold">Регистрационные данные:</h4>
             <div asp-validation-summary="All" class="text-danger"></div>
             <form asp-controller="Account" asp-action="Registration" method="post" class="needs-validation" novalidate>
                 <div class="row">
@@ -47,8 +36,8 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="UserLastName" class="font-weight-bold" >Фамилия</label>
-                        <input id="UserLastName" type="text" class="form-control" placeholder="" value="" disabled>
+                        <label asp-for="UserLastName" class="font-weight-bold">Фамилия</label>
+                        <input asp-for="UserLastName" type="text" class="form-control" placeholder="" value="">
                         <div class="invalid-feedback">
                             Введите корректную фамилию.
                         </div>
@@ -86,30 +75,30 @@
                 <div class="row">
                     <div class="col-md-4 mb-3 mt-3">
                         <label class="font-weight-bold" for="Email">Ваш пол:</label>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="male" name="Sex" value="1" class="custom-control-input">
-                            <label class="custom-control-label" for="male">Мужской</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="female" name="Sex" value="1" class="custom-control-input">
-                            <label class="custom-control-label" for="female">Женский</label>
-                        </div>
+                        @foreach (var g in System.Enum.GetValues(typeof(Genders)))
+                        {
+                            <div class="custom-control custom-radio">
+                                <input type="radio" asp-for="Gender" value="@((int)g)" id="@((int)g)_gender" class="custom-control-input">
+                                <label class="custom-control-label" for="@((int)g)_gender" gender-description="@g"></label>
+                            </div>
+                        }
                     </div>
+
                     <div class="col-md-8 mb-3">
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Возраст</span>
+                                <span class="input-group-text width-standart">Возраст</span>
                             </div>
-                            <input type="text" class="form-control" id="Age" placeholder=" ... (полных лет)" value="" required>
+                            <input type="text" class="form-control" asp-for="Age" placeholder=" ... (полных лет)" value="">
                             <div class="invalid-feedback">
                                 Введите Ваш возраст (полных лет).
                             </div>
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Стаж в IT</span>
+                                <span class="input-group-text width-standart">Стаж в IT</span>
                             </div>
-                            <input type="text" class="form-control" id="experience" placeholder=" ... (полных лет)" value="" required>
+                            <input type="text" class="form-control" asp-for="Experience" placeholder=" ... (полных лет)" value="">
                             <div class="invalid-feedback">
                                 Введите Ваш опыт работы в IT (полных лет).
                             </div>
@@ -117,22 +106,14 @@
                     </div>
 
                 </div>
-
                 <div class="mb-3">
                     <label class="font-weight-bold" for="region">Регион:</label>
-                    <select class="custom-select d-block w-100" id="region" required>
-                        <option value="">Выберите...</option>
-                        <option value="1">Минск</option>
-                        <option value="2">Минская область</option>
-                        <option value="3">Брестская область</option>
-                        <option value="4">Витебская область</option>
-                        <option value="5">Гомельская область</option>
-                        <option value="6">Гродненская область</option>
-                        <option value="7">Могилевская область</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Пожалуйста, укажите регион Вашего проживания.
-                    </div>
+                        <select class="form-control d-block w-100" asp-for="Region" asp-items="Html.GetEnumSelectList<Regions>()">
+                            <option value="" disabled selected>Выберите...</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, укажите регион Вашего проживания.
+                        </div>
                 </div>
 
 
@@ -140,7 +121,5 @@
                 <button class="btn btn-jobit-80 btn-lg btn-block" type="submit">Зарегистрироваться!</button>
             </form>
         </div>
-    </div>
-</div>
 
 

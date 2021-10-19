@@ -14,39 +14,30 @@
 
 @section Header {
 
-    <header>
-        <nav class="navbar shadow justify-content-between w-100 px-2">
-            <div class="d-inline-flex">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Logo.svg" alt="" class="logo align-self-center">
-                </a>
-            </div>
-            <div class="d-inline-flex py-2">
-                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-action="Registration">
-                    <i class="bi bi-card-checklist"></i>&ensp;Регистрация
-                </a>
-            </div>
-        </nav>
-    </header>
+    <div class="ml-auto my-1">
+        <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-action="Registration">
+            <i class="bi bi-card-checklist"></i>&ensp;Регистрация
+        </a>
+    </div>
 
 }
 
-
-<main class="d-flex justify-content-center bg-gradient">
-    <div class="align-self-center">
-        <img src="/Logo.svg" alt="" class="logo align-self-center">
-        <h1 class="h3 mb-3 font-weight-normal">Авторизация пользователя</h1>
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <form asp-controller="Account" asp-action="Login" method="post" class="form-signin text-center">
+<div class="col-12 p-0">
+    <div class="d-flex vh-100 justify-content-center bg-gradient">
+        <form asp-controller="Account" asp-action="Login" method="post" class="form-signin text-center align-self-center">
+            <img src="/Logo.svg" alt="" class="logo">
+            <h1 class="h3 mb-3 font-weight-normal">Авторизация пользователя</h1>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl">
             <input asp-for="Email" type="email" class="form-control" placeholder="Введите e-mail" required autofocus>
             <input asp-for="Password" type="password" class="form-control" placeholder="Введите пароль" required>
             <button class="btn btn-lg btn-jobit-80 btn-block my-2" type="submit">Войти</button>
             <p class="mt-5 mb-3 text-muted">&copy;2021</p>
         </form>
-
     </div>
-</main>
+</div>
+
+
 
 
 

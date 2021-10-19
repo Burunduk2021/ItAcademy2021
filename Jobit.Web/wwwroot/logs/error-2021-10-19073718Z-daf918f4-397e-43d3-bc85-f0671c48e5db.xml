@@ -1,0 +1,179 @@
+﻿<error errorId="daf918f4-397e-43d3-bc85-f0671c48e5db" application="Jobit.Web" host="NATALIA-PC" type="HTTP" message="NotFound" detail="# caller: @C:\Sources\ElmahCore\ElmahCore\ElmahCore\Internal$\CallerInfo.cs:9&#xD;&#xA;ElmahCore.HttpException: NotFound" user="Nata" time="2021-10-19T07:37:18.2001346Z" statusCode="404">
+  <serverVariables>
+    <item name="StreamId">
+      <value string="21" />
+    </item>
+    <item name="RequestBodyStarted">
+      <value string="False" />
+    </item>
+    <item name="EndStreamReceived">
+      <value string="True" />
+    </item>
+    <item name="ReceivedEmptyRequestBody">
+      <value string="True" />
+    </item>
+    <item name="CanReuse">
+      <value string="False" />
+    </item>
+    <item name="ConnectionIdFeature">
+      <value string="0HMCIQCIPCOI2" />
+    </item>
+    <item name="HasStartedConsumingRequestBody">
+      <value string="False" />
+    </item>
+    <item name="MaxRequestBodySize">
+      <value string="30000000" />
+    </item>
+    <item name="AllowSynchronousIO">
+      <value string="False" />
+    </item>
+    <item name="TraceIdentifier">
+      <value string="0HMCIQCIPCOI2:00000015" />
+    </item>
+    <item name="IsUpgradableRequest">
+      <value string="False" />
+    </item>
+    <item name="IsUpgraded">
+      <value string="False" />
+    </item>
+    <item name="RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="RemotePort">
+      <value string="55805" />
+    </item>
+    <item name="LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="Scheme">
+      <value string="https" />
+    </item>
+    <item name="Method">
+      <value string="Get" />
+    </item>
+    <item name="MethodText">
+      <value string="GET" />
+    </item>
+    <item name="Path">
+      <value string="/Account/AccessDenied" />
+    </item>
+    <item name="QueryString">
+      <value string="?ReturnUrl=%2FUser%2FUserProps" />
+    </item>
+    <item name="RawTarget">
+      <value string="/Account/AccessDenied?ReturnUrl=%2FUser%2FUserProps" />
+    </item>
+    <item name="HttpVersion">
+      <value string="HTTP/2" />
+    </item>
+    <item name="Header_Cache-Control">
+      <value string="max-age=0" />
+    </item>
+    <item name="Header_:authority">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_:method">
+      <value string="GET" />
+    </item>
+    <item name="Header_:path">
+      <value string="/Account/AccessDenied?ReturnUrl=%2FUser%2FUserProps" />
+    </item>
+    <item name="Header_:scheme">
+      <value string="https" />
+    </item>
+    <item name="Header_Accept">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="Header_Accept-Encoding">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="Header_Accept-Language">
+      <value string="ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7" />
+    </item>
+    <item name="Header_Cookie">
+      <value string=".AspNetCore.Antiforgery.ZPX4Iww0iwE=CfDJ8E5vce0TfPtLlAOUyEBH0avcGS4xZnpzuUd06_lHv8hsHUNob8XhFU0ZfQbYUDIC9lPbAzqZDBg2oNXugy9M-ZqQZpzm-iXn_Z48cbFVD3DXmor5IkFAgUdPLNu-vzk8RkM-ZPp0sjXLhwUVoEPLI0Y,.AspNetCore.Identity.Application=CfDJ8E5vce0TfPtLlAOUyEBH0avCS2RP1OCVQppMMy5Y7O2LBGlCjyc-SIHlWdFO9DXyW2ANJU78XVsxhGGkQkitk72D_Pu_ny6EDo-ahq4ZprujgrshQbWXQtj5b8dVhhZjObBWtO8fqyFvW9DJ0M5JCXAlsUWQNVHYxWybPdSS6kCUFu_uWjbSLyzdT3_UL1p-wQlJD_Z36sdUdV0dpvY5PtajTZra96a-WxmOgS8pbo2JWPkM4ek53-XzAuGMzamKPRlTYUnLcJC8iZa_4zCrcBLERRODSK7ahDzpRInkeJEM6-oWWNvKQ8vr51LxWEtDo_UwiGt61S-muIbFUkBn1K8jtwuH13jPnX0Ru6egUGXlcamWbodrfPn45gJIw739ztTa8f6mM_OronJ2Ro5MDbN3X6rVYQnedpHUHLOkf4DiAm9cEaOqTM5JU6edAQ0cEujTxoa6Ee-Vd4VKbBfvVZfr3v65kr35z7BrvKGg9G7Uhmw5bU86y139KmzD5BK6VsQmdQ9OfAkEarIaxj5NCQ8LBNPLheA_9ZAyiGrl-9xq24KUSXip4dd9c6i645NfV6d7X_p0VOzK3vRnAXw0Q5uJvZUNOsUgTtsfw7lvv3d6aoRLTMGrha0Z8CTd28zOOjUL-taxNNWN8N6P2mJdClR139oCes7kiYKjkeqyhqPPCwnwYLOW3YuM0OnN_MuUcoqBuE7d7fAjXF2I54L0AT3idmZVjXTr3r79YPS8Hp3gV9HzQ-dOEKxDyNk2ggIce06nyWjQ5jcnon8c4crvoWhmlIrtafT2VKcd3LK7aYyyVPb7FkANVtgJ-F0OmWdGg4hBZ4EkZhhV0Bidduu-NXU" />
+    </item>
+    <item name="Header_Host">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_Referer">
+      <value string="https://localhost:5001/Admin/AdminProps" />
+    </item>
+    <item name="Header_User-Agent">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.9 Safari/537.36" />
+    </item>
+    <item name="Header_Upgrade-Insecure-Requests">
+      <value string="1" />
+    </item>
+    <item name="Header_sec-fetch-site">
+      <value string="same-origin" />
+    </item>
+    <item name="Header_sec-fetch-mode">
+      <value string="navigate" />
+    </item>
+    <item name="Header_sec-fetch-user">
+      <value string="?1" />
+    </item>
+    <item name="Header_sec-fetch-dest">
+      <value string="document" />
+    </item>
+    <item name="Header_sec-ch-ua">
+      <value string="&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;" />
+    </item>
+    <item name="Header_sec-ch-ua-mobile">
+      <value string="?0" />
+    </item>
+    <item name="Header_sec-ch-ua-platform">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="RequestTrailersAvailable">
+      <value string="True" />
+    </item>
+    <item name="StatusCode">
+      <value string="404" />
+    </item>
+    <item name="HasResponseStarted">
+      <value string="False" />
+    </item>
+    <item name="HasFlushedHeaders">
+      <value string="False" />
+    </item>
+    <item name="HasResponseCompleted">
+      <value string="False" />
+    </item>
+    <item name="Connection_Id">
+      <value string="0HMCIQCIPCOI2" />
+    </item>
+    <item name="Connection_RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_RemotePort">
+      <value string="55805" />
+    </item>
+    <item name="Connection_LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="HttpStatusCode">
+      <value string="404" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="ReturnUrl">
+      <value string="/User/UserProps" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name=".AspNetCore.Antiforgery.ZPX4Iww0iwE">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0avcGS4xZnpzuUd06_lHv8hsHUNob8XhFU0ZfQbYUDIC9lPbAzqZDBg2oNXugy9M-ZqQZpzm-iXn_Z48cbFVD3DXmor5IkFAgUdPLNu-vzk8RkM-ZPp0sjXLhwUVoEPLI0Y" />
+    </item>
+    <item name=".AspNetCore.Identity.Application">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0avCS2RP1OCVQppMMy5Y7O2LBGlCjyc-SIHlWdFO9DXyW2ANJU78XVsxhGGkQkitk72D_Pu_ny6EDo-ahq4ZprujgrshQbWXQtj5b8dVhhZjObBWtO8fqyFvW9DJ0M5JCXAlsUWQNVHYxWybPdSS6kCUFu_uWjbSLyzdT3_UL1p-wQlJD_Z36sdUdV0dpvY5PtajTZra96a-WxmOgS8pbo2JWPkM4ek53-XzAuGMzamKPRlTYUnLcJC8iZa_4zCrcBLERRODSK7ahDzpRInkeJEM6-oWWNvKQ8vr51LxWEtDo_UwiGt61S-muIbFUkBn1K8jtwuH13jPnX0Ru6egUGXlcamWbodrfPn45gJIw739ztTa8f6mM_OronJ2Ro5MDbN3X6rVYQnedpHUHLOkf4DiAm9cEaOqTM5JU6edAQ0cEujTxoa6Ee-Vd4VKbBfvVZfr3v65kr35z7BrvKGg9G7Uhmw5bU86y139KmzD5BK6VsQmdQ9OfAkEarIaxj5NCQ8LBNPLheA_9ZAyiGrl-9xq24KUSXip4dd9c6i645NfV6d7X_p0VOzK3vRnAXw0Q5uJvZUNOsUgTtsfw7lvv3d6aoRLTMGrha0Z8CTd28zOOjUL-taxNNWN8N6P2mJdClR139oCes7kiYKjkeqyhqPPCwnwYLOW3YuM0OnN_MuUcoqBuE7d7fAjXF2I54L0AT3idmZVjXTr3r79YPS8Hp3gV9HzQ-dOEKxDyNk2ggIce06nyWjQ5jcnon8c4crvoWhmlIrtafT2VKcd3LK7aYyyVPb7FkANVtgJ-F0OmWdGg4hBZ4EkZhhV0Bidduu-NXU" />
+    </item>
+  </cookies>
+</error>

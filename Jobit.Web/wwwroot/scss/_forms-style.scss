@@ -3,11 +3,6 @@
     border-color: rebeccapurple;
 }
 
-.custom-select:focus {
-    border-color: mediumslateblue;
-    box-shadow: none;
-}
-
 .form-control:focus {
     border-color: gold;
     box-shadow: none;
@@ -15,5 +10,18 @@
 
 .custom-select:focus {
     border-color: gold;
+    box-shadow: none;
 }
 
+.width-standart {
+    width: 5.5rem;
+}
+
+.menu {
+    color: white;
+    font-weight: bold;
+}
+
+jobit-table {
+    font-size: 2rem;
+}

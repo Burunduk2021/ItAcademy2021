@@ -14,32 +14,24 @@
 
 @section Header {
 
-    <header>
-        <nav class="navbar shadow justify-content-between w-100 px-2">
-            <div class="d-inline-flex">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Logo.svg" alt="" class="logo align-self-center">
-                </a>
-            </div>
-            <form class="form-inline">
-                        <button class="btn btn-warning" type="submit"  asp-action="Search">Вкладка ПОИСК!</button>
-            </form>
-            <div class="d-inline-flex py-2">
-                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="RoleAdmin" asp-action="RoleManagement">
-                    <i class="bi bi-card-checklist"></i>&ensp;Роли
-                </a>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="Admin" asp-action="UserManagement">
-                    <i class="bi bi-card-checklist"></i>&ensp;Юзеры
-                </a>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill mr-2" asp-controller="Account" asp-action="Registration">
-                    <i class="bi bi-card-checklist"></i>&ensp;Регистрация
-                </a>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-controller="Account" asp-action="Login">
-                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
-                </a>
-            </div>
-        </nav>
-    </header>
-
+    <div class="ml-auto my-1">
+        <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-controller="Account" asp-action="Registration">
+            <i class="bi bi-card-checklist"></i>&ensp;Регистрация
+        </a>
+        <a class="btn btn-reg btn-jobit-60 rounded-pill ml-2" asp-controller="Account" asp-action="Login">
+            <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+        </a>
+    </div>
 }
+
+<div class="col-12 p-0">
+    <div class="d-flex vh-100 justify-content-center bg-gradient">
+            <form class="input-group align-self-center w-50 mb-3">
+                <input type="text" class="form-control" placeholder="Профессия, должность или компания">
+                <div class="input-group-append">
+                    <button class="btn btn-warning" type="submit" asp-action="Search">Найти!</button>
+                </div>
+            </form>
+    </div>
+</div>
 

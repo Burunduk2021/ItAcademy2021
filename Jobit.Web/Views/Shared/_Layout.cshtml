@@ -11,26 +11,54 @@
     @await RenderSectionAsync("css", required: false)
 
 </head>
-<body class="d-flex flex-column h-100">
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md shadow">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="/Logo.svg" alt="" class="logo align-self-center">
+            </a>
+            <button class="navbar-toggler bg-warning" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                @await RenderSectionAsync("Header", required: false)
+            </div>
+        </nav>
+    </header>
 
-    @await RenderSectionAsync("Header", required: false)
+    <main class="container-fluid p-0">
+        <div class="row p-0 m-0 justify-content-md-center">
+            @RenderBody()
+        </div>
+    </main>
 
-    @RenderBody()
-
-    @* ------ FOOTER ------ *@
-    <footer class="footer footer-general  footer-text fixed-bottom">
-        <div>
-            &copy; 2021 - JobIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">О нас</a>
+    <footer class="footer pt-2 border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md">
+                    <h5>О сайте</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="menu" href="#">Пользовательское соглашение</a></li>
+                        <li><a class="menu" href="#">Инструкция</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>О нас</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="menu" href="#">О проекте</a></li>
+                        <li><a class="menu" href="#">Команда</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
-    @* ------ /FOOTER ------ *@
 
     @* ------JS (JQUERY / BOOTSTRAP) ------ *@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
     <script src="~/js/js-min/bootstrap.bundle.min.js"></script>
-
+    
     @await RenderSectionAsync("js", required: false)
 
 </body>

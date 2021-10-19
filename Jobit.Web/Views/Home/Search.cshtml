@@ -14,36 +14,49 @@
 
 @section Header {
 
-    <header>
-        <nav class="navbar shadow justify-content-between w-100 px-2">
-            <div class="d-inline-flex">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Logo.svg" alt="" class="logo align-self-center">
-                </a>
-                <div class="nav-item m-auto">
-                    <a class="nav-link unselectable" id="sidebar-toggle">
-                        <i class="bi bi-ui-checks"></i>&ensp;Фильтры
-                    </a>
+    <div class="mr-auto my-1">
+        <a class="nav-link unselectable" id="sidebar-toggle">
+            <i class="bi bi-ui-checks"></i>&ensp;Фильтры
+        </a>
+    </div>
+
+    <form class="form-inline my-1">
+        <div class="input-group">
+            <input class="form-control" type="search" placeholder="Поиск" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-warning" type="submit">Найти!</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="ml-auto my-1">
+        <a class="btn btn-reg btn-jobit-60 rounded-pill " asp-controller="Account" asp-action="Registration">
+            <i class="bi bi-card-checklist"></i>&ensp;Регистрация
+        </a>
+        <a class="btn btn-reg btn-jobit-60 rounded-pill ml-2" asp-controller="Account" asp-action="Login">
+            <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+        </a>
+    </div>
+
+
+
+    @*<a class="nav-link unselectable mr-auto" id="sidebar-toggle">
+            <i class="bi bi-ui-checks"></i>&ensp;Фильтры
+        </a>
+        <form class="form-inline">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Поиск" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-warning" type="submit">Найти!</button>
                 </div>
             </div>
-            <form class="form-inline">
-                <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-warning" type="submit">Найти!</button>
-                    </div>
-                </div>
-            </form>
-            <div class="d-inline-flex py-2">
-                <button class="btn btn-reg btn-jobit-60 rounded-pill mr-2 ">
-                    <i class="bi bi-card-checklist"></i>&ensp;Регистрация
-                </button>
-                <a class="btn btn-reg btn-jobit-60 rounded-pill" asp-action="LogIn">
-                    <i class="bi bi-box-arrow-right "></i>&ensp;Войти
-                </a>
-            </div>
-        </nav>
-    </header>
+        </form>
+        <a class="btn btn-reg btn-jobit-60 rounded-pill ml-auto" asp-controller="Account" asp-action="Registration">
+            <i class="bi bi-card-checklist"></i>&ensp;Регистрация
+        </a>
+        <a class="btn btn-reg btn-jobit-60 rounded-pill ml-2" asp-controller="Account" asp-action="Login">
+            <i class="bi bi-box-arrow-right "></i>&ensp;Войти
+        </a>*@
 
 }
 
@@ -354,6 +367,47 @@
                     </div>
                 </li>
 
+                <li class="my-1">
+                    <div class="container vac-href">
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-between px-4 pt-1 my-0">
+                                <p class="vac-description text-jobit">2021-9-20</p>
+                                <p class="vac-description text-jobit">Praca.by</p>
+                            </div>
+                            <hr class="border-jobit-40"></hr>
+                            <div class="row justify-content-between px-4 my-0">
+                                <p class="vac-description accent">Верстальщик HTML</p>
+                                <p class="vac-description accent">1000 руб.</p>
+                            </div>
+                        </a>
+                        <!--EXCLUDE HEART FROM HREF AREA-->
+                        <div class="row justify-content-between px-4 my-1">
+                            <a href="#" class="vac-description" target="_blank">
+                                <span class="bi bi-building"></span>&ensp;Рога и копыта
+                            </a>
+                            <a @*asp-controller="Search" asp-action="SaveHeartClick" asp-route-vacID="@Model.VacId*@>
+                                <span class="bi bi-heart-fill pr-4 mb-0 pb-0"></span>
+                            </a>
+                        </div>
+
+                        <a href="#" target="_blank">
+                            <div class="row justify-content-start px-4 my-0">
+                                <p class="vac-description text-dark"><span class="bi bi-geo-alt-fill"></span>&ensp;Минск</p>
+                            </div>
+
+                            <div class="row px-4">
+                                <p class="m-0">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                    Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
             </ul>
 
         </div>
@@ -364,62 +418,62 @@
 
 
 
-    @section js {
-        @* ------ Custom JS. Sidebar Toggle Script ------ *@
-        <script>
-            $("#sidebar-toggle").click(function (e) {
-                e.preventDefault();
-                $("#main-wrapper").toggleClass("toggled");
+@section js {
+    @* ------ Custom JS. Sidebar Toggle Script ------ *@
+    <script>
+        $("#sidebar-toggle").click(function (e) {
+            e.preventDefault();
+            $("#main-wrapper").toggleClass("toggled");
+        });
+    </script>
+
+    <!--JQuery UI-->
+    <script src="~/js\jquery-3.2.1.min.js" asp-append-version="true"></script>
+    <script src="~/js\jquery-ui-1.12.1\jquery-ui.min.js" asp-append-version="true"></script>
+
+
+    <script>
+        //ПОДСВЕТКА ЭЛЕМЕНТОВ ФИЛЬТРОВ
+        $('li.lightli')
+            .mouseover(function () {
+                $(this).css({ "background-color": "MediumPurple", "color": "white", "border-radius": "10px" });
             });
-        </script>
+        $('li.lightli')
+            .mouseout(function () {
+                $(this).css({ "background-color": "White", "color": "rgb(36, 92, 197)" });
 
-        <!--JQuery UI-->
-        <script src="~/js\jquery-3.2.1.min.js" asp-append-version="true"></script>
-        <script src="~/js\jquery-ui-1.12.1\jquery-ui.min.js" asp-append-version="true"></script>
-
-
-        <script>
-            //ПОДСВЕТКА ЭЛЕМЕНТОВ ФИЛЬТРОВ
-            $('li.lightli')
-                .mouseover(function () {
-                    $(this).css({ "background-color": "MediumPurple", "color": "white", "border-radius": "10px" });
-                });
-            $('li.lightli')
-                .mouseout(function () {
-                    $(this).css({ "background-color": "White", "color": "rgb(36, 92, 197)" });
-
-                });
-
-            //SWITCHERS TO SERVER
-            //--Salary switcher
-            $('#only-with-salary').change(function () {
-                var uri = '/Search/FilterBySalarySwitcher';
-                document.location.href = uri;
             });
-            //--No duplicates switcher
-            $('#no-duplicates')
-                .change(function () {
-                    var uri = '/Search/FilterByDuplicateSwitcher';
-                    document.location.href = uri;
-                });
 
-            //SELECTS TO SERVER
-            //--ORDER BY public date
-            $('#orderBy').on('change', function () {
-                var selected = $(this).val();
-                var uri = '/Search/OrderByFromSelect/' + selected;
+        //SWITCHERS TO SERVER
+        //--Salary switcher
+        $('#only-with-salary').change(function () {
+            var uri = '/Search/FilterBySalarySwitcher';
+            document.location.href = uri;
+        });
+        //--No duplicates switcher
+        $('#no-duplicates')
+            .change(function () {
+                var uri = '/Search/FilterByDuplicateSwitcher';
                 document.location.href = uri;
             });
 
-            //--Filter by public date (SELECT)
-            $('#releaseDate').on('change', function () {
-                var selected = $(this).val();
-                var uri = '/Search/FilterByDate/' + selected;
-                document.location.href = uri;
-            });
+        //SELECTS TO SERVER
+        //--ORDER BY public date
+        $('#orderBy').on('change', function () {
+            var selected = $(this).val();
+            var uri = '/Search/OrderByFromSelect/' + selected;
+            document.location.href = uri;
+        });
+
+        //--Filter by public date (SELECT)
+        $('#releaseDate').on('change', function () {
+            var selected = $(this).val();
+            var uri = '/Search/FilterByDate/' + selected;
+            document.location.href = uri;
+        });
 
 
-        </script>
+    </script>
 
 
-    }
+}
