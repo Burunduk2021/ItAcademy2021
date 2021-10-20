@@ -14,7 +14,8 @@ using Jobit.Web.Models;
 using Jobit.BLL.Models.Identity;
 using Jobit.Web.Infrastructure.FileLogger;
 using ElmahCore;
-
+using FluentValidation.AspNetCore;
+using FormHelper;
 
 
 namespace Jobit.Web.Controllers
@@ -111,8 +112,6 @@ namespace Jobit.Web.Controllers
             return View("UserManagement", userManager.Users);
         }
 
-        private Task<AppUser> CurrentUser => userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-
         public async Task<IActionResult> AdminProps()
         {
             string temp = TempData["PassError"] as string;
@@ -121,11 +120,9 @@ namespace Jobit.Web.Controllers
                 ModelState.AddModelError("", temp);
             }
 
-            //второй вариант получения текущего пользователя
             AppUser curUser = await userManager.GetUserAsync(User);
-            //AppUser curUser = await CurrentUser;
             UserModel editableUser = new UserModel();
-            editableUser.UserFirstName = curUser.UserName;
+            editableUser.UserName = curUser.UserName;
             editableUser.UserLastName = curUser.LastName;
             editableUser.Email = curUser.Email;
             editableUser.Age = curUser.Age;
@@ -141,8 +138,8 @@ namespace Jobit.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser updateUser = await CurrentUser;
-                updateUser.UserName = user.UserFirstName;
+                AppUser updateUser = await userManager.GetUserAsync(User);
+                updateUser.UserName = user.UserName;
                 updateUser.LastName = user.UserLastName;
                 updateUser.Gender = user.Gender;
                 updateUser.Age = user.Age;
@@ -168,7 +165,8 @@ namespace Jobit.Web.Controllers
                     }
                     else
                     {
-                        string msg = "Не удалось сменить пароль. Новый пароль не соответствует требованиям!";
+                        string msg = "Failed to change password. The new password must be 6 characters long or more, " +
+                            "contain upper and lower case Latin letters, at least one number and a special character!";
                         TempData["PassError"] = msg;
                         AddErrorsFromResult(validPass);
                     }

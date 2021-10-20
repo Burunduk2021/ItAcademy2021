@@ -15,5 +15,7 @@ namespace Jobit.Web.Models
         public Regions? Region { get; set; }
         public int? Age { get; set; }
         public int? Experience { get; set; }
+
+        public DateTime? LastLoginDate { get; set; }
     }
 }

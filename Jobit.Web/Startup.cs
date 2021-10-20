@@ -10,8 +10,11 @@ using Microsoft.Extensions.Logging;
 using Jobit.Web.Database;
 using Jobit.Web.Models;
 using Jobit.Web.Infrastructure.FileLogger;
+using Jobit.Web.Infrastructure.UserModelValidator;
 using ElmahCore;
 using ElmahCore.Mvc;
+using FluentValidation.AspNetCore;
+using FormHelper;
 
 namespace Jobit.Web
 {
@@ -33,6 +36,8 @@ namespace Jobit.Web
             services.AddDbContext<JobitDbContext>(options => options.UseSqlServer(Configuration["Data:AsmGpirDb:ConnectionString"]));
             //Identity configuration
             services.AddIdentity<AppUser, IdentityRole>(opts=> {
+                opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                                                      "0123456789- " + "àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞß";
                 opts.User.RequireUniqueEmail = true;
                 opts.Password.RequiredLength = 6;
             }).AddEntityFrameworkStores<JobitDbContext>()
@@ -49,7 +54,10 @@ namespace Jobit.Web
             {
                 options.LogPath = "~/logs";
             });
-
+            //FluentValidator
+            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserModelValidator>());
+            //FormHelper
+            services.AddControllersWithViews().AddFormHelper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,6 +85,9 @@ namespace Jobit.Web
 
             //ElmahCore
             app.UseElmah();
+
+            //FormHelper
+            app.UseFormHelper();
 
             app.UseEndpoints(endpoints =>
             {

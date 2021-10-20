@@ -21,11 +21,15 @@ description: https://metanit.com/sharp/aspnet5/10.4.php
 https://stackoverflow.com/questions/388483/how-do-you-create-a-dropdownlist-from-an-enum-in-asp-net-mvc/8375647#8375647
 Смена пароля: https://metanit.com/sharp/aspnet5/16.8.php
               https://docs.microsoft.com/ru-ru/aspnet/web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-5.0&tabs=visual-studio
 Статья по логированию: https://blog.zwezdin.com/2017/asp-net-core-logging/
                        https://blog.zwezdin.com/2017/asp-net-core-custom-logging-provider/   (настройка фильтров для своего провайдера!!! category - при необходимости можно сохранять контроллер)
 Структурированное ведение журнала: https://docs.microsoft.com/ru-ru/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0
 ElmahCore: https://github.com/ElmahCore/ElmahCore
 Критика Serilog: https://habr.com/ru/post/550582/
+
+FluentValidations: https://docs.fluentvalidation.net/en/latest/aspnet.html
+                   https://github.com/sinanbozkus/FormHelper
 
 Логгирование:
 1)appsettings.json - настройка правил

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Jobit.BLL.Models.Identity;
+using FluentValidation.AspNetCore;
+using FormHelper;
 
 namespace Jobit.Web.Controllers
 {
@@ -46,11 +48,20 @@ namespace Jobit.Web.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, details.Password, false, false);
                     if (result.Succeeded) 
                     {
-                        string userRole = (await userManager.GetRolesAsync(user)).First();
-                        if (userRole == UserRoles.Admin)
-                            return RedirectToAction("Index",  "Admin");
-                        else // userRole = UserRoles.User
-                            return RedirectToAction("UserProps", "User");
+                        user.LastLoginDate = DateTime.Now.ToLocalTime();
+                        IdentityResult res= await userManager.UpdateAsync(user);
+                        if (!res.Succeeded)
+                        {
+                            AddErrorsFromResult(res);
+                        }
+                        else
+                        {
+                            string userRole = (await userManager.GetRolesAsync(user)).First();
+                            if (userRole == UserRoles.Admin)
+                                return RedirectToAction("Index", "Admin");
+                            else // userRole = UserRoles.User
+                                return RedirectToAction("UserProps", "User");
+                        }
                     }
                 }
             ModelState.AddModelError(nameof(LoginModel.Email), "Неверный логин или пароль.");
@@ -74,7 +85,7 @@ namespace Jobit.Web.Controllers
             {
                 AppUser user = new AppUser
                 {
-                    UserName = model.UserFirstName,
+                    UserName = model.UserName,
                     LastName = model.UserLastName,
                     Email = model.Email,
                     Gender = model.Gender,
@@ -103,6 +114,14 @@ namespace Jobit.Web.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        private void AddErrorsFromResult(IdentityResult result)
+        {
+            foreach (IdentityError error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
         }
     }
 }

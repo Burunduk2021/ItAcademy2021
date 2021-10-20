@@ -7944,5 +7944,8 @@ a {
   color: white;
   font-weight: bold; }
 
-jobit-table {
+.jobit-table {
   font-size: 2rem; }
+
+.line-spacing {
+  line-height: 0.9rem !important; }

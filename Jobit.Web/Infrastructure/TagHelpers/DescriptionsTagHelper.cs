@@ -17,7 +17,7 @@ namespace Jobit.Web.Infrastructure
         [HtmlAttributeName("gender-description")]
         public string gender { get; set; }
 
-        public override  async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             object objTestEnum;
             objTestEnum = Enum.Parse(Genders.male.GetType(), gender);

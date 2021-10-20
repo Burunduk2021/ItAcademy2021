@@ -1,0 +1,183 @@
+﻿<error errorId="f7da1818-1e8a-4c7f-94ae-d9ceb15df0c9" application="Jobit.Web" host="NATALIA-PC" type="System.Exception" message="Действия администратора" detail="# caller: @C:\Sources\ElmahCore\ElmahCore\ElmahCore\Internal$\CallerInfo.cs:9&#xD;&#xA;System.Exception: Действия администратора" user="TestAdmin" time="2021-10-20T08:51:27.3890645Z" statusCode="500">
+  <serverVariables>
+    <item name="StreamId">
+      <value string="9" />
+    </item>
+    <item name="RequestBodyStarted">
+      <value string="False" />
+    </item>
+    <item name="EndStreamReceived">
+      <value string="True" />
+    </item>
+    <item name="ReceivedEmptyRequestBody">
+      <value string="True" />
+    </item>
+    <item name="CanReuse">
+      <value string="False" />
+    </item>
+    <item name="ConnectionIdFeature">
+      <value string="0HMCJKR5R4KDS" />
+    </item>
+    <item name="HasStartedConsumingRequestBody">
+      <value string="False" />
+    </item>
+    <item name="MaxRequestBodySize">
+      <value string="30000000" />
+    </item>
+    <item name="AllowSynchronousIO">
+      <value string="False" />
+    </item>
+    <item name="TraceIdentifier">
+      <value string="0HMCJKR5R4KDS:00000009" />
+    </item>
+    <item name="IsUpgradableRequest">
+      <value string="False" />
+    </item>
+    <item name="IsUpgraded">
+      <value string="False" />
+    </item>
+    <item name="RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="RemotePort">
+      <value string="54046" />
+    </item>
+    <item name="LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="Scheme">
+      <value string="https" />
+    </item>
+    <item name="Method">
+      <value string="Get" />
+    </item>
+    <item name="MethodText">
+      <value string="GET" />
+    </item>
+    <item name="Path">
+      <value string="/Admin" />
+    </item>
+    <item name="QueryString">
+      <value string="" />
+    </item>
+    <item name="RawTarget">
+      <value string="/Admin" />
+    </item>
+    <item name="HttpVersion">
+      <value string="HTTP/2" />
+    </item>
+    <item name="Header_Cache-Control">
+      <value string="max-age=0" />
+    </item>
+    <item name="Header_:authority">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_:method">
+      <value string="GET" />
+    </item>
+    <item name="Header_:path">
+      <value string="/Admin" />
+    </item>
+    <item name="Header_:scheme">
+      <value string="https" />
+    </item>
+    <item name="Header_Accept">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="Header_Accept-Encoding">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="Header_Accept-Language">
+      <value string="ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7" />
+    </item>
+    <item name="Header_Cookie">
+      <value string=".AspNetCore.Antiforgery.ZPX4Iww0iwE=CfDJ8E5vce0TfPtLlAOUyEBH0aukvgtX4qKomHpR0NPN3yjLVxLVgn4KIcRok67eJATP2uIA8rnpxUuN4ajdewESE1ZbjIB2Co2PnAfGwUDR9uoyQZls7lLAf_J9y5lP0nufMfPYLJYhettScP19abTXQxg,.AspNetCore.Identity.Application=CfDJ8E5vce0TfPtLlAOUyEBH0avfyOxPhNKkJdgeNHLLmAoDxyaploOJCgJ522tlXAyDQN570484s_XoB_m-qYyomMQ8m2Ibg1aJfRa7lh7DzEmIY2lV8d7ev83JDEvGvG1P3Uxp3XDguLhZjgtuZZuJ1Kva5xGVne8JzfrzhmPknuac-IkqZIkcTLP8Ssv8yoJ4XXVroN6jYb7RVZYgGbkLQNFHw01QA4i8hX0Oope8NF52xuzN9l8f_sNdK_i5Lp_H4BD1gjXOfGhLNUjOPctmKuGSAt_bjVJSSHNue9aYO76pd40gBC0d-XouUFlSiiBqggnva6vOEh68gnBDI_7d61mGWvM1Bi1bMs2bkr6Tq8Hp2XKztQm9FKxYC9Rp12vWUlZSca8LA3OleJbjotDiMlpyH6kKfdk2T49_N0pCzv2_fFaSSyLhJtgjchxtalHma3pTecZYa8-RzCWEx0As6NGs9O0Zrjtg71ESNwYzg95BdmPFzUVi6FL1e5jsvYTWxn6UbisEJSRWl18l-Cw7FLhHeNR_ptVlnLPdaZ7cn934JzU74FI0yJAEMRxrOr3pfbPLCtabKLj1EaLy09Inm3d2XK2C1nYS3_KPwY0xZuVw1ilukeLatya9eNqhhJ0P3Q5m0M8sAT2VD-6APIBkJO5BxZR2kCOXXoYwUThx7gmF5TbrEIDDmg2-WTps2h35qBhWiRWCEzMD23H5o3f2hjpYymEq91rYwbQvx1aoN0Xa89g9IjekC_W7vu1pFVQySbp9idV4pKxzQojAwbN_w3xfIXiOFlUeK1Rr5uUBXFg9yy878SCAGpG9Q5xsFPduEN_NMYSIFNV4cJ0RkSawzQ-oV4_NBa_U-Tss4m_Y_jci" />
+    </item>
+    <item name="Header_Host">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_Referer">
+      <value string="https://localhost:5001/Account/Login" />
+    </item>
+    <item name="Header_User-Agent">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.9 Safari/537.36" />
+    </item>
+    <item name="Header_Upgrade-Insecure-Requests">
+      <value string="1" />
+    </item>
+    <item name="Header_sec-fetch-site">
+      <value string="same-origin" />
+    </item>
+    <item name="Header_sec-fetch-mode">
+      <value string="navigate" />
+    </item>
+    <item name="Header_sec-fetch-user">
+      <value string="?1" />
+    </item>
+    <item name="Header_sec-fetch-dest">
+      <value string="document" />
+    </item>
+    <item name="Header_sec-ch-ua">
+      <value string="&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;" />
+    </item>
+    <item name="Header_sec-ch-ua-mobile">
+      <value string="?0" />
+    </item>
+    <item name="Header_sec-ch-ua-platform">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="RequestTrailersAvailable">
+      <value string="True" />
+    </item>
+    <item name="StatusCode">
+      <value string="200" />
+    </item>
+    <item name="HasResponseStarted">
+      <value string="False" />
+    </item>
+    <item name="HasFlushedHeaders">
+      <value string="False" />
+    </item>
+    <item name="HasResponseCompleted">
+      <value string="False" />
+    </item>
+    <item name="Connection_Id">
+      <value string="0HMCJKR5R4KDS" />
+    </item>
+    <item name="Connection_RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_RemotePort">
+      <value string="54046" />
+    </item>
+    <item name="Connection_LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="HttpStatusCode">
+      <value string="500" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name=".AspNetCore.Antiforgery.ZPX4Iww0iwE">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0aukvgtX4qKomHpR0NPN3yjLVxLVgn4KIcRok67eJATP2uIA8rnpxUuN4ajdewESE1ZbjIB2Co2PnAfGwUDR9uoyQZls7lLAf_J9y5lP0nufMfPYLJYhettScP19abTXQxg" />
+    </item>
+    <item name=".AspNetCore.Identity.Application">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0avfyOxPhNKkJdgeNHLLmAoDxyaploOJCgJ522tlXAyDQN570484s_XoB_m-qYyomMQ8m2Ibg1aJfRa7lh7DzEmIY2lV8d7ev83JDEvGvG1P3Uxp3XDguLhZjgtuZZuJ1Kva5xGVne8JzfrzhmPknuac-IkqZIkcTLP8Ssv8yoJ4XXVroN6jYb7RVZYgGbkLQNFHw01QA4i8hX0Oope8NF52xuzN9l8f_sNdK_i5Lp_H4BD1gjXOfGhLNUjOPctmKuGSAt_bjVJSSHNue9aYO76pd40gBC0d-XouUFlSiiBqggnva6vOEh68gnBDI_7d61mGWvM1Bi1bMs2bkr6Tq8Hp2XKztQm9FKxYC9Rp12vWUlZSca8LA3OleJbjotDiMlpyH6kKfdk2T49_N0pCzv2_fFaSSyLhJtgjchxtalHma3pTecZYa8-RzCWEx0As6NGs9O0Zrjtg71ESNwYzg95BdmPFzUVi6FL1e5jsvYTWxn6UbisEJSRWl18l-Cw7FLhHeNR_ptVlnLPdaZ7cn934JzU74FI0yJAEMRxrOr3pfbPLCtabKLj1EaLy09Inm3d2XK2C1nYS3_KPwY0xZuVw1ilukeLatya9eNqhhJ0P3Q5m0M8sAT2VD-6APIBkJO5BxZR2kCOXXoYwUThx7gmF5TbrEIDDmg2-WTps2h35qBhWiRWCEzMD23H5o3f2hjpYymEq91rYwbQvx1aoN0Xa89g9IjekC_W7vu1pFVQySbp9idV4pKxzQojAwbN_w3xfIXiOFlUeK1Rr5uUBXFg9yy878SCAGpG9Q5xsFPduEN_NMYSIFNV4cJ0RkSawzQ-oV4_NBa_U-Tss4m_Y_jci" />
+    </item>
+  </cookies>
+  <messageLog>
+    <message level="Warning" time-stamp="2021-10-20T08:51:27.3814546Z" message="Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 20.10.2021 11:51:27" />
+    <message level="Warning" time-stamp="2021-10-20T08:51:27.3819653Z" message="Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 20.10.2021 11:51:27" />
+  </messageLog>
+  <paramsLog>
+    <parameter time-stamp="2021-10-20T08:51:27.3829140Z" type-name="Jobit.Web.Controllers.AdminController" member-name="Index" file="C:\Users\natal\source\repos\ItAcademy2021\Jobit.Web\Controllers\AdminController.cs" line="52">
+      <param name="Email" value="&quot;testadmin@example.com&quot;" />
+    </parameter>
+  </paramsLog>
+</error>

@@ -79,3 +79,62 @@ Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в �
 Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 11:10:04
 Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 11:12:34
 Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 11:14:23
+Warning - 13 - User validation failed: InvalidUserName.
+Warning - 13 - User validation failed: InvalidUserName.
+Warning - 14 - User password validation failed: PasswordRequiresUpper.
+Warning - 13 - User validation failed: InvalidEmail.
+Warning - 13 - User validation failed: InvalidUserName.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 15:06:53
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 15:23:24
+Warning - 13 - User validation failed: InvalidUserName.
+Warning - 14 - User password validation failed: PasswordRequiresLower;PasswordRequiresUpper.
+Warning - 13 - User validation failed: DuplicateUserName.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 16:09:15
+Warning - 1000 - Пользователь [e-mail: h4@mail.ru] зашел в аккаунт 19.10.2021 16:09:39
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 16:10:28
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 0 - Invalid password for user.
+Warning - 2 - User failed to provide the correct password.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 16:29:02
+Warning - 14 - User password validation failed: PasswordRequiresLower;PasswordRequiresUpper.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 18:44:03
+Warning - 0 - Invalid password for user.
+Warning - 0 - Invalid password for user.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 23:21:56
+Warning - 13 - User validation failed: DuplicateUserName.
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 23:37:00
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 19.10.2021 23:45:00
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:04:02
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:05:07
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:05:41
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:09:19
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:09:43
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:26:39
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:28:29
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:29:46
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:32:47
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:37:29
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 00:41:25
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 09:39:54
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 09:42:59
+Warning - 1000 - Пользователь [e-mail: bubu@mail.ru] зашел в аккаунт 20.10.2021 11:15:18
+Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 20.10.2021 11:40:59
+Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 20.10.2021 11:51:27
+Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 20.10.2021 11:52:30
