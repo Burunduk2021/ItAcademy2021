@@ -24,26 +24,27 @@ namespace Jobit.Web.Controllers
             return View();
         }
 
-        public IActionResult Search()
-        {
-            return View();
-        }
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Test()
+        public IActionResult Search()
         {
-            return View();
+            List<Vacancy> vacancies = GetVacanciesList();
+            return View(vacancies);
         }
+
+        private List<Vacancy> GetVacanciesList()
+        {
+            List<Vacancy> vac = new List<Vacancy>();
+            vac.Add(new Vacancy(){Profession="Верстальщик", Region=Regions.cityMinsk.ToString() });
+            vac.Add(new Vacancy() { Profession = "Тестировщик", Region = Regions.regBrest.ToString() });
+            vac.Add(new Vacancy() { Profession = "Dev ops", Region = Regions.regGrodno.ToString() });
+            return vac;
+        }
+
+
     }
 }

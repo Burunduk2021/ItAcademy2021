@@ -1,0 +1,44 @@
+﻿@model Vacancy
+
+        <li class="my-1">
+            <div class="container vac-href">
+                <a href="#" target="_blank">
+                    <div class="row justify-content-between px-4 pt-1 my-0">
+                        <p class="vac-description text-jobit">2021-9-20</p>
+                        <p class="vac-description text-jobit">Praca.by</p>
+                    </div>
+                    <hr class="border-jobit-40"></hr>
+                    <div class="row justify-content-between px-4 my-0">
+                        <p class="vac-description accent">@Model.Profession</p>
+                        <p class="vac-description accent">1000 руб.</p>
+                    </div>
+                </a>
+                <!--EXCLUDE HEART FROM HREF AREA-->
+                <div class="row justify-content-between px-4 my-1">
+                    <a href="#" class="vac-description" target="_blank">
+                        <span class="bi bi-building"></span>&ensp;Рога и копыта
+                    </a>
+                    <a @*asp-controller="Search" asp-action="SaveHeartClick" asp-route-vacID="@Model.VacId*@>
+                        <span class="bi bi-heart-fill pr-4 mb-0 pb-0"></span>
+                    </a>
+                </div>
+
+                <a href="#" target="_blank">
+                    <div class="row justify-content-start px-4 my-0">
+                        <p class="vac-description text-dark"><span class="bi bi-geo-alt-fill"></span>&ensp;@Model.Region</p>
+                    </div>
+
+                    <div class="row px-4">
+                        <p class="m-0">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </li>
+
