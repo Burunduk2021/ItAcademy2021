@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Jobit.BLL.Models.Identity;
 using FluentValidation.AspNetCore;
 using FormHelper;
+using Jobit.DAL.Entities.Identity;
 
 namespace Jobit.Web.Controllers
 {
@@ -38,7 +39,7 @@ namespace Jobit.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel details, string returnUrl) 
+        public async Task<IActionResult> Login(LoginViewModel details, string returnUrl) 
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +65,7 @@ namespace Jobit.Web.Controllers
                         }
                     }
                 }
-            ModelState.AddModelError(nameof(LoginModel.Email), "Неверный логин или пароль.");
+            ModelState.AddModelError(nameof(LoginViewModel.Email), "Неверный логин или пароль.");
             }
             return View(details);
         }
@@ -79,7 +80,7 @@ namespace Jobit.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registration(UserModel model) 
+        public async Task<IActionResult> Registration(UserViewModel model) 
         {
             if (ModelState.IsValid)
             {
@@ -88,8 +89,8 @@ namespace Jobit.Web.Controllers
                     UserName = model.UserName,
                     LastName = model.UserLastName,
                     Email = model.Email,
-                    Gender = model.Gender,
-                    Region = model.Region,
+                    Gender = model.Gender.ToString(),
+                    Region = model.Region.ToString(),
                     Age = model.Age,
                     Experience = model.Experience
                 };

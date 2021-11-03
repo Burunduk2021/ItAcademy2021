@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Identity;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Jobit.Web.Models
+namespace Jobit.DAL.Entities.Identity
 {
     public class AppUser : IdentityUser
     {
         public string LastName { get; set; }
-        public Genders? Gender { get; set; }
-        public Regions? Region { get; set; }
+        public string Gender { get; set; }
+        public string Region { get; set; }
         public int? Age { get; set; }
         public int? Experience { get; set; }
 

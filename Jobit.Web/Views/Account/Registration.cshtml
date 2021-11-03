@@ -1,4 +1,4 @@
-﻿@model UserModel
+﻿@model UserViewModel
 
 @{
     ViewData["Title"] = "Registration";
@@ -71,10 +71,10 @@
                 <label class="font-weight-bold" for="Email">Ваш пол:</label>
                 @foreach (var g in System.Enum.GetValues(typeof(Genders)))
                 {
-                    <div class="custom-control custom-radio">
-                        <input type="radio" asp-for="Gender" value="@((int)g)" id="@((int)g)_gender" class="custom-control-input">
-                        <label class="custom-control-label" for="@((int)g)_gender" gender-description="@g"></label>
-                    </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" asp-for="Gender" value="@((int)g)" id="@((int)g)_gender" class="custom-control-input">
+                    <label class="custom-control-label" for="@((int)g)_gender" gender-description="@g"></label>
+                </div>
                 }
             </div>
 

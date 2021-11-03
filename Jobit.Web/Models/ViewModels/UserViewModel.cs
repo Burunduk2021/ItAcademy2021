@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 namespace Jobit.Web.Models
 {
 
-    public class UserModel
+    public class UserViewModel
     {
         [Required]
         [StringLength(20)]

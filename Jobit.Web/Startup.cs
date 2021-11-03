@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Jobit.Web.Database;
 using Jobit.Web.Models;
 using Jobit.Web.Infrastructure.FileLogger;
 using Jobit.Web.Infrastructure.UserModelValidator;
@@ -15,6 +14,8 @@ using ElmahCore;
 using ElmahCore.Mvc;
 using FluentValidation.AspNetCore;
 using FormHelper;
+using Jobit.DAL.Entities.Identity;
+using Jobit.DAL.Database;
 
 namespace Jobit.Web
 {
@@ -33,7 +34,7 @@ namespace Jobit.Web
             //MVC infrastucture configuration
             services.AddControllersWithViews();           
             //SQL Db and repositories settings
-            services.AddDbContext<JobitDbContext>(options => options.UseSqlServer(Configuration["Data:AsmGpirDb:ConnectionString"]));
+            services.AddDbContext<JobitDbContext>(options => options.UseSqlServer(Configuration["Data:AsmGpirDb:ConnectionString_Natalia"]));
             //Identity configuration
             services.AddIdentity<AppUser, IdentityRole>(opts=> {
                 opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +

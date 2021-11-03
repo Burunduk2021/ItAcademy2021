@@ -5,21 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
-using Jobit.DAL.Entities.Aggregator;
 using Jobit.DAL.Entities.Identity;
 
 namespace Jobit.DAL.Database
 {
-    public class JobitDbContext : IdentityDbContext
+    public class JobitDbContext : IdentityDbContext<AppUser>
     {
-        //public static JobitDbContext GetJobitDbContext()
-        //{
-        //    var optionsBuilder = new DbContextOptionsBuilder<JobitDbContext>();
-        //    string cstr = "Server=ARTUR-PC;Database=JobitDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        //    optionsBuilder.UseSqlServer(cstr);
-        //    return new JobitDbContext(optionsBuilder.Options);
-        //}
-
         public JobitDbContext(DbContextOptions<JobitDbContext> options) : base(options)
         {
 #if ZEROMODE
@@ -35,21 +26,9 @@ namespace Jobit.DAL.Database
 #endif
         }
 
-        //Aggregator Entities
-        public virtual DbSet<Vacancy> Vacancies { get; set; }
-        public virtual DbSet<Employer> Employers { get; set; }
-        public virtual DbSet<Location> Locations { get; set; }
-        public virtual DbSet<JobType> JobTypes{ get; set; }
-        public virtual DbSet<JobSchedule> JobSchedules { get; set; }
-        public virtual DbSet<JobUri> JobUris { get; set; }
-        public virtual DbSet<JobSource> JobSources { get; set; }
-        public virtual DbSet<Word> Words { get; set; }
-        public virtual DbSet<KeyWord> KeyWords { get; set; }
-        public virtual DbSet<CurrencyExchange> CurrencyExchanges { get; set; }
-
         /// <summary>
         /// Ввод предустановленных данных:
-        ///     (1) четыре неизменяемые пользовательские роли;
+        ///     (1) 2 неизменяемые пользовательские роли;
         ///     (2) первой учетной записи "администратор". Он уже сможет вручную создать новые записи. Иначе в систему невозможно будет зайти.
         /// </summary>
         /// <param name="serviceProvider">Обеспечивает разовое подключение службы управления пользователями и ролями для создания УЗ</param>
@@ -60,7 +39,7 @@ namespace Jobit.DAL.Database
             //Создать две предустановленные пользовательские роли
             RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             IdentityRole userRole;
-            foreach (string roleName in AppUserRole.rolesArray)
+            foreach (string roleName in DAL.Entities.Identity.AppUserRole.rolesArray)
             {
                 userRole = await roleManager.FindByNameAsync(roleName);
                 if (userRole == null)
@@ -70,13 +49,13 @@ namespace Jobit.DAL.Database
             }
 
             //Создать первую учетную запись при первом запуске приложения
-            UserManager<IdentityUser> userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            UserManager<AppUser> userManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
             string name = configuration["Data:AdminUser:Name"];
             string email = configuration["Data:AdminUser:Email"];
             string password = configuration["Data:AdminUser:Password"];
             if (await userManager.FindByEmailAsync(email) == null)
             {
-                IdentityUser user = new IdentityUser
+                AppUser user = new AppUser
                 {
                     Email = email,
                     UserName = name
@@ -85,7 +64,7 @@ namespace Jobit.DAL.Database
                 IdentityResult result = await userManager.CreateAsync(user, password);
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(user, AppUserRole.admin);
+                    await userManager.AddToRoleAsync(user, DAL.Entities.Identity.AppUserRole.admin);
                 }
             }
         }
@@ -97,22 +76,6 @@ namespace Jobit.DAL.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<JobSource>().HasData(
-                    JobSource.jobSourceesInitDb
-            );
-
-            modelBuilder.Entity<JobSchedule>().HasData(
-                    JobSchedule.jobSchedulesInitDb
-            );
-
-            modelBuilder.Entity<JobType>().HasData(
-                    JobType.jobTypesInitDb
-            );
-
-            modelBuilder.Entity<CurrencyExchange>().HasData(
-                    CurrencyExchange.currencyExchangesInitDb
-            );
         }
     }
 }

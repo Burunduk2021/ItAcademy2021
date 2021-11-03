@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Jobit.Web.Models;
-
+using Jobit.DAL.Entities.Identity;
 
 namespace Jobit.Web.Infrastructure
 {
@@ -15,7 +15,6 @@ namespace Jobit.Web.Infrastructure
     {
         private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
-       
 
         public UsersTagHelper(UserManager<AppUser> userMgr, RoleManager<IdentityRole> roleMgr)
         {
@@ -32,7 +31,7 @@ namespace Jobit.Web.Infrastructure
         {
             List<string> roleNames = new List<string>();
             AppUser user = await userManager.FindByIdAsync(userId);
-            UserViewModel usersRoles = new UserViewModel();
+            RolesViewModel usersRoles = new RolesViewModel();
             usersRoles.Roles = await userManager.GetRolesAsync(user);
             foreach (var x in usersRoles.Roles)
             {

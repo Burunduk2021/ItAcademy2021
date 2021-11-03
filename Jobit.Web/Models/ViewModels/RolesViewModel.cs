@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Jobit.Web.Models
 {
-    public class UserViewModel
+    public class RolesViewModel
     {
         public IList<string> Roles { get; set; }
     }

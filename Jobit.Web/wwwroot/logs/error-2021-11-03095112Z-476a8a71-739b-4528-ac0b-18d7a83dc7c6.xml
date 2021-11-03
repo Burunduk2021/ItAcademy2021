@@ -1,0 +1,215 @@
+﻿<error errorId="476a8a71-739b-4528-ac0b-18d7a83dc7c6" application="Jobit.Web" host="NATALIA-PC" type="System.InvalidOperationException" message="Role ПОЛЬЗОВАТЕЛЬ does not exist." source="Microsoft.AspNetCore.Identity.EntityFrameworkCore" detail="# caller: @C:\Sources\ElmahCore\ElmahCore\ElmahCore\Internal$\CallerInfo.cs:9&#xD;&#xA;System.InvalidOperationException: Role ПОЛЬЗОВАТЕЛЬ does not exist.&#xD;&#xA;   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)&#xD;&#xA;   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)&#xD;&#xA;   at Jobit.Web.Controllers.AccountController.Registration(UserViewModel model) in C:\Users\natal\source\repos\ItAcademy2021\Jobit.Web\Controllers\AccountController.cs:line 102&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeInnerFilterAsync&gt;g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextResourceFilter&gt;g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)&#xD;&#xA;   at Microsoft.AspNetCore.Routing.EndpointMiddleware.&lt;Invoke&gt;g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)&#xD;&#xA;   at ElmahCore.Mvc.ErrorLogMiddleware.InvokeAsync(HttpContext context)" time="2021-11-03T09:51:12.8403301Z" statusCode="500">
+  <serverVariables>
+    <item name="StreamId">
+      <value string="5" />
+    </item>
+    <item name="InputRemaining">
+      <value string="0" />
+    </item>
+    <item name="RequestBodyStarted">
+      <value string="True" />
+    </item>
+    <item name="EndStreamReceived">
+      <value string="True" />
+    </item>
+    <item name="ReceivedEmptyRequestBody">
+      <value string="False" />
+    </item>
+    <item name="CanReuse">
+      <value string="False" />
+    </item>
+    <item name="ConnectionIdFeature">
+      <value string="0HMCULSLE44GR" />
+    </item>
+    <item name="HasStartedConsumingRequestBody">
+      <value string="True" />
+    </item>
+    <item name="MaxRequestBodySize">
+      <value string="30000000" />
+    </item>
+    <item name="AllowSynchronousIO">
+      <value string="False" />
+    </item>
+    <item name="TraceIdentifier">
+      <value string="0HMCULSLE44GR:00000005" />
+    </item>
+    <item name="IsUpgradableRequest">
+      <value string="False" />
+    </item>
+    <item name="IsUpgraded">
+      <value string="False" />
+    </item>
+    <item name="RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="RemotePort">
+      <value string="49451" />
+    </item>
+    <item name="LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="Scheme">
+      <value string="https" />
+    </item>
+    <item name="Method">
+      <value string="Post" />
+    </item>
+    <item name="MethodText">
+      <value string="POST" />
+    </item>
+    <item name="Path">
+      <value string="/Account/Registration" />
+    </item>
+    <item name="QueryString">
+      <value string="" />
+    </item>
+    <item name="RawTarget">
+      <value string="/Account/Registration" />
+    </item>
+    <item name="HttpVersion">
+      <value string="HTTP/2" />
+    </item>
+    <item name="Header_Cache-Control">
+      <value string="max-age=0" />
+    </item>
+    <item name="Header_Content-Type">
+      <value string="application/x-www-form-urlencoded" />
+    </item>
+    <item name="Header_:authority">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_:method">
+      <value string="POST" />
+    </item>
+    <item name="Header_:path">
+      <value string="/Account/Registration" />
+    </item>
+    <item name="Header_:scheme">
+      <value string="https" />
+    </item>
+    <item name="Header_Accept">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="Header_Accept-Encoding">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="Header_Accept-Language">
+      <value string="ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7" />
+    </item>
+    <item name="Header_Cookie">
+      <value string=".AspNetCore.Antiforgery.ZPX4Iww0iwE=CfDJ8GwZHnav-95BlCbUEoQ8l11X-RUTcaJpq44VUCS3rBWFbb7MqMCPKInDIlCgvr4_CCx_9OZxsDMm4v_JMopXiP-7-1JBa740Ie0ysxDNII2xi2_2_sw8hoqtp_UB4w4y5VjYRmJnaFzH4CndzrhIqI4" />
+    </item>
+    <item name="Header_Host">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_Referer">
+      <value string="https://localhost:5001/Account/Registration" />
+    </item>
+    <item name="Header_User-Agent">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4681.0 Safari/537.36" />
+    </item>
+    <item name="Header_Upgrade-Insecure-Requests">
+      <value string="1" />
+    </item>
+    <item name="Header_Origin">
+      <value string="https://localhost:5001" />
+    </item>
+    <item name="Header_Content-Length">
+      <value string="297" />
+    </item>
+    <item name="Header_sec-ch-ua">
+      <value string="&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;" />
+    </item>
+    <item name="Header_sec-ch-ua-mobile">
+      <value string="?0" />
+    </item>
+    <item name="Header_sec-ch-ua-platform">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="Header_sec-fetch-site">
+      <value string="same-origin" />
+    </item>
+    <item name="Header_sec-fetch-mode">
+      <value string="navigate" />
+    </item>
+    <item name="Header_sec-fetch-user">
+      <value string="?1" />
+    </item>
+    <item name="Header_sec-fetch-dest">
+      <value string="document" />
+    </item>
+    <item name="RequestTrailersAvailable">
+      <value string="True" />
+    </item>
+    <item name="StatusCode">
+      <value string="200" />
+    </item>
+    <item name="HasResponseStarted">
+      <value string="False" />
+    </item>
+    <item name="HasFlushedHeaders">
+      <value string="False" />
+    </item>
+    <item name="HasResponseCompleted">
+      <value string="False" />
+    </item>
+    <item name="Items_Items__FV_Customizations">
+      <value string="(Jobit.Web.Models.UserViewModel, FluentValidation.AspNetCore.CustomizeValidatorAttribute)" />
+    </item>
+    <item name="Connection_Id">
+      <value string="0HMCULSLE44GR" />
+    </item>
+    <item name="Connection_RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_RemotePort">
+      <value string="49451" />
+    </item>
+    <item name="Connection_LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="HttpStatusCode">
+      <value string="500" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="UserName">
+      <value string="TestUser" />
+    </item>
+    <item name="UserLastName">
+      <value string="TestUser" />
+    </item>
+    <item name="Email">
+      <value string="TestUser@mail.ru" />
+    </item>
+    <item name="Password">
+      <value string="!Secret1" />
+    </item>
+    <item name="Age">
+      <value string="45" />
+    </item>
+    <item name="Experience">
+      <value string="14" />
+    </item>
+    <item name="Region">
+      <value string="3" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="CfDJ8GwZHnav-95BlCbUEoQ8l12Oam8b8pZphfP_l-1QiY-Hdr_8K39J-7hUQLDQKUe0-COSHyYhwdXHrVPl_Av9p4RobbgJne6TrO819CTdB7zKc_fL56FnjECB9gJTrV8AKmoRk9TGnILiJstq4dzGrE4" />
+    </item>
+    <item name="$request-body">
+      <value string="UserName=TestUser&amp;UserLastName=TestUser&amp;Email=TestUser%40mail.ru&amp;Password=%21Secret1&amp;Age=45&amp;Experience=14&amp;Region=3&amp;__RequestVerificationToken=CfDJ8GwZHnav-95BlCbUEoQ8l12Oam8b8pZphfP_l-1QiY-Hdr_8K39J-7hUQLDQKUe0-COSHyYhwdXHrVPl_Av9p4RobbgJne6TrO819CTdB7zKc_fL56FnjECB9gJTrV8AKmoRk9TGnILiJstq4dzGrE4" />
+    </item>
+  </form>
+  <cookies>
+    <item name=".AspNetCore.Antiforgery.ZPX4Iww0iwE">
+      <value string="CfDJ8GwZHnav-95BlCbUEoQ8l11X-RUTcaJpq44VUCS3rBWFbb7MqMCPKInDIlCgvr4_CCx_9OZxsDMm4v_JMopXiP-7-1JBa740Ie0ysxDNII2xi2_2_sw8hoqtp_UB4w4y5VjYRmJnaFzH4CndzrhIqI4" />
+    </item>
+  </cookies>
+</error>

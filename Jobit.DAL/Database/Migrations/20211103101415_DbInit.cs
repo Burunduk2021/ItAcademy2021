@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Jobit.Web.Database.Migrations
+namespace Jobit.DAL.Database.Migrations
 {
     public partial class DbInit : Migration
     {
@@ -27,8 +27,8 @@ namespace Jobit.Web.Database.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Gender = table.Column<int>(type: "int", nullable: true),
-                    Region = table.Column<int>(type: "int", nullable: true),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Region = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: true),
                     Experience = table.Column<int>(type: "int", nullable: true),
                     LastLoginDate = table.Column<DateTime>(type: "datetime2", nullable: true),

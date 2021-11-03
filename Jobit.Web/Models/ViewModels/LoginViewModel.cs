@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Jobit.Web.Models
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         [Required]
         [UIHint("email")]

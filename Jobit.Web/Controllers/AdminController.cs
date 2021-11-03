@@ -16,6 +16,7 @@ using Jobit.Web.Infrastructure.FileLogger;
 using ElmahCore;
 using FluentValidation.AspNetCore;
 using FormHelper;
+using Jobit.DAL.Entities.Identity;
 
 
 namespace Jobit.Web.Controllers
@@ -121,30 +122,29 @@ namespace Jobit.Web.Controllers
             }
 
             AppUser curUser = await userManager.GetUserAsync(User);
-            UserModel editableUser = new UserModel();
+            UserViewModel editableUser = new UserViewModel();
             editableUser.UserName = curUser.UserName;
             editableUser.UserLastName = curUser.LastName;
             editableUser.Email = curUser.Email;
             editableUser.Age = curUser.Age;
             editableUser.Experience = curUser.Experience;
-            editableUser.Region = curUser.Region;
-            editableUser.Gender = curUser.Gender;
+            editableUser.Region = (Regions)Enum.Parse(typeof(Regions), curUser.Region);
+            editableUser.Gender = (Genders)Enum.Parse(typeof(Genders), curUser.Gender);
             return View(editableUser);
         }
 
-
         [HttpPost]
-        public async Task<RedirectToActionResult> AdminProps(UserModel user)
+        public async Task<RedirectToActionResult> AdminProps(UserViewModel user)
         {
             if (ModelState.IsValid)
             {
                 AppUser updateUser = await userManager.GetUserAsync(User);
                 updateUser.UserName = user.UserName;
                 updateUser.LastName = user.UserLastName;
-                updateUser.Gender = user.Gender;
+                updateUser.Gender = user.Gender.ToString();
                 updateUser.Age = user.Age;
                 updateUser.Experience = user.Experience;
-                updateUser.Region = user.Region;
+                updateUser.Region = user.Region.ToString();
 
                 updateUser.Email = user.Email;
                 IdentityResult validAdmin = await userValidator.ValidateAsync(userManager, updateUser);

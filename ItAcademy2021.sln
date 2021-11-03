@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jobit", "Jobit", "{8C02FCAD
 	ProjectSection(SolutionItems) = preProject
 		EFcommands.md = EFcommands.md
 		GitFlow branches.md = GitFlow branches.md
+		Problems.md = Problems.md
 		UsefulRefs.md = UsefulRefs.md
 	EndProjectSection
 EndProject

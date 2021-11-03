@@ -15,14 +15,13 @@ namespace Jobit.Web.Infrastructure
     public class DescriptionsTagHelper : TagHelper
     {
         [HtmlAttributeName("gender-description")]
-        public string gender { get; set; }
+        public string Gender { get; set; }
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             object objTestEnum;
-            objTestEnum = Enum.Parse(Genders.male.GetType(), gender);
+            objTestEnum = Enum.Parse(Genders.male.GetType(), Gender);
             output.Content.SetContent(((Genders)objTestEnum).ToDescription());
         }
-
     }
 }

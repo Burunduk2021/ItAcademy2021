@@ -148,3 +148,4 @@ Warning - 1000 - Пользователь [e-mail: testadmin@example.com] заш
 Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 28.10.2021 12:34:09
 Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 28.10.2021 12:42:18
 Warning - 1000 - Пользователь [e-mail: testadmin@example.com] зашел в аккаунт 28.10.2021 12:51:27
+Warning - 13 - User validation failed: DuplicateEmail.

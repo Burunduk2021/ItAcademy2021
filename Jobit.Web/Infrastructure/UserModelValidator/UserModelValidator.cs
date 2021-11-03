@@ -7,7 +7,7 @@ using Jobit.Web.Models;
 
 namespace Jobit.Web.Infrastructure.UserModelValidator
 {
-    public class UserModelValidator : AbstractValidator<UserModel>
+    public class UserModelValidator : AbstractValidator<UserViewModel>
     {
         public UserModelValidator() 
             {

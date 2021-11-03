@@ -19,7 +19,7 @@ namespace Jobit.DAL.Database
                 .AddJsonFile(Directory.GetCurrentDirectory() + "/../Jobit.Web/appsettings.json")
                 .Build();
             var builder = new DbContextOptionsBuilder<JobitDbContext>();
-            var connectionString = configuration.GetSection("Data:AsmGpirDb_Artur:ConnectionString").Value;
+            var connectionString = configuration.GetSection("Data:AsmGpirDb:ConnectionString_Natalia").Value;
             builder.UseSqlServer(connectionString);
             return new JobitDbContext(builder.Options);
         }
