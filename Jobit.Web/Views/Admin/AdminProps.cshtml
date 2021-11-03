@@ -39,100 +39,100 @@
     <h4 class="my-3 font-weight-bold">Персональные данные:</h4>
     <div asp-validation-summary="All" class="text-danger"></div>
     <form asp-controller="Admin" asp-action="AdminProps" asp-formhelper="true" method="post" class="needs-validation" novalidate>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label asp-for="UserName" class="font-weight-bold">Псевдоним</label>
-                <input asp-for="UserName" type="text" class="form-control" placeholder="" required>
-                <p class="line-spacing"><span class="small text-danger" asp-validation-for="UserName"></span></p>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label asp-for="UserLastName" class="font-weight-bold">Имя и фамилия</label>
-                <input asp-for="UserLastName" type="text" class="form-control" placeholder="">
-                <p class="line-spacing"><span class="small text-danger" asp-validation-for="UserLastName"></span></p>
-            </div>
-        </div>
-
-        <hr class="mb-4">
-        <h5>Данные для входа:</h5>
-        <div class="row">
-
-            <div class="col-md-6 mb-3">
-                <label asp-for="Email" class="font-weight-bold">Логин</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@@</span>
-                    </div>
-                    <input asp-for="Email" type="email" class="form-control" placeholder="" required>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="UserName" class="font-weight-bold">Псевдоним</label>
+                    <input asp-for="UserName" type="text" class="form-control" placeholder="" required>
+                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="UserName"></span></p>
                 </div>
-                <p class="line-spacing"><span class="small text-danger" asp-validation-for="Email"></span></p>
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label class="font-weight-bold">Пароль</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Новый пароль &nbsp;</span>
-                    </div>
-                    <input asp-for="NewPassword" type="password" class="form-control" placeholder="" value="" autocomplete="new-password">
-                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="NewPassword"></span></p>
-            </div>
-            </div>
-        </div>
-
-        <hr class="mb-4">
-        <h5>Дополнительные сведения:</h5>
-        <small class="form-text text-muted">
-            Эти данные используются для оптимизации поиска вакансий.
-        </small>
-
-        <div class="row">
-            <div class="col-md-4 mb-3 mt-3">
-                <label class="font-weight-bold" for="Email">Ваш пол:</label>
-                @foreach (var g in System.Enum.GetValues(typeof(Genders)))
-                {
-                    <div class="custom-control custom-radio">
-                        <input type="radio" asp-for="Gender" value="@g" id="@((int)g)_gender" class="custom-control-input">
-                        <label class="custom-control-label" for="@((int)g)_gender" gender-description="@g"></label>
-                    </div>
-                }
-            </div>
-
-            <div class="col-md-8 mb-3">
-                <div class="input-group mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text width-standart">Возраст</span>
-                    </div>
-                    <input type="text" class="form-control" asp-for="Age" placeholder=" ... (полных лет)">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="UserLastName" class="font-weight-bold">Имя и фамилия</label>
+                    <input asp-for="UserLastName" type="text" class="form-control" placeholder="">
+                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="UserLastName"></span></p>
                 </div>
-                <p class="line-spacing"><span class="small text-danger" asp-validation-for="Age"></span></p>
-                <div class="input-group mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text width-standart">Стаж в IT</span>
+            </div>
+
+            <hr class="mb-4">
+            <h5>Данные для входа:</h5>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Email" class="font-weight-bold">Логин</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@@</span>
+                        </div>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="" required>
                     </div>
-                    <input type="text" class="form-control" asp-for="Experience" placeholder=" ... (полных лет)">
+                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="Email"></span></p>
                 </div>
-                <p class="line-spacing"><span class="small text-danger" asp-validation-for="Experience"></span></p>
+
+                <div class="col-md-6 mb-3">
+                    <label class="font-weight-bold">Пароль</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Новый пароль &nbsp;</span>
+                        </div>
+                        <input asp-for="NewPassword" type="password" class="form-control" placeholder="" value="" autocomplete="new-password">
+                        <p class="line-spacing"><span class="small text-danger" asp-validation-for="NewPassword"></span></p>
+                    </div>
+                </div>
             </div>
 
-        </div>
-        <div class="mb-3">
-            <label class="font-weight-bold" for="region">Регион:</label>
-            <select class="form-control d-block w-100" asp-for="Region" asp-items="Html.GetEnumSelectList<Regions>()">
-                <option value="" disabled selected>Выберите...</option>
-            </select>
-            <div class="invalid-feedback">
-                Пожалуйста, укажите регион Вашего проживания.
+            <hr class="mb-4">
+            <h5>Дополнительные сведения:</h5>
+            <small class="form-text text-muted">
+                Эти данные используются для оптимизации поиска вакансий.
+            </small>
+
+            <div class="row">
+                <div class="col-md-4 mb-3 mt-3">
+                    <label class="font-weight-bold" for="Email">Ваш пол:</label>
+                    @foreach (var g in System.Enum.GetValues(typeof(Genders)))
+                    {
+                        <div class="custom-control custom-radio">
+                            <input type="radio" asp-for="Gender" value="@g" id="@((int)g)_gender" class="custom-control-input">
+                            <label class="custom-control-label" for="@((int)g)_gender" gender-description="@g"></label>
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-8 mb-3">
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text width-standart">Возраст</span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Age" placeholder=" ... (полных лет)">
+                    </div>
+                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="Age"></span></p>
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text width-standart">Стаж в IT</span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Experience" placeholder=" ... (полных лет)">
+                    </div>
+                    <p class="line-spacing"><span class="small text-danger" asp-validation-for="Experience"></span></p>
+                </div>
+
             </div>
-        </div>
+            <div class="mb-3">
+                <label class="font-weight-bold" for="region">Регион:</label>
+                <select class="form-control d-block w-100" asp-for="Region" asp-items="Html.GetEnumSelectList<Regions>()">
+                    <option value="" disabled selected>Выберите...</option>
+                </select>
+                <div class="invalid-feedback">
+                    Пожалуйста, укажите регион Вашего проживания.
+                </div>
+            </div>
 
 
-        <hr class="mb-4">
-        <div class="row justify-content-center ">
-            <div class="col-md-6 mb-3">
-                <button class="btn btn-jobit-80 btn-lg btn-block" type="submit">Сохранить</button>
+            <hr class="mb-4">
+            <div class="row justify-content-center ">
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-jobit-80 btn-lg btn-block" type="submit">Сохранить</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 </div>
 
 

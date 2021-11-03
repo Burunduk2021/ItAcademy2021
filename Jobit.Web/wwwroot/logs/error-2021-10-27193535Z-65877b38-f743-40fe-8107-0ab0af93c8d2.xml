@@ -1,0 +1,183 @@
+﻿<error errorId="65877b38-f743-40fe-8107-0ab0af93c8d2" application="Jobit.Web" host="NATALIA-PC" type="System.NullReferenceException" message="Object reference not set to an instance of an object." source="FormHelper" detail="# caller: @C:\Sources\ElmahCore\ElmahCore\ElmahCore\Internal$\CallerInfo.cs:9&#xD;&#xA;System.NullReferenceException: Object reference not set to an instance of an object.&#xD;&#xA;   at FormHelper.FormHelperTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)&#xD;&#xA;   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.&lt;RunAsync&gt;g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)&#xD;&#xA;   at AspNetCore.Views_Admin_AdminProps.ExecuteAsync() in C:\Users\natal\source\repos\ItAcademy2021\Jobit.Web\Views\Admin\AdminProps.cshtml:line 41&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextResultFilterAsync&gt;g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()&#xD;&#xA;--- End of stack trace from previous location ---&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextResourceFilter&gt;g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)&#xD;&#xA;   at Microsoft.AspNetCore.Routing.EndpointMiddleware.&lt;Invoke&gt;g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)&#xD;&#xA;   at ElmahCore.Mvc.ErrorLogMiddleware.InvokeAsync(HttpContext context)" user="TestAdmin" time="2021-10-27T19:35:35.9110631Z" statusCode="500">
+  <serverVariables>
+    <item name="StreamId">
+      <value string="9" />
+    </item>
+    <item name="RequestBodyStarted">
+      <value string="False" />
+    </item>
+    <item name="EndStreamReceived">
+      <value string="True" />
+    </item>
+    <item name="ReceivedEmptyRequestBody">
+      <value string="True" />
+    </item>
+    <item name="CanReuse">
+      <value string="False" />
+    </item>
+    <item name="ConnectionIdFeature">
+      <value string="0HMCPG3NQ92AA" />
+    </item>
+    <item name="HasStartedConsumingRequestBody">
+      <value string="False" />
+    </item>
+    <item name="MaxRequestBodySize">
+      <value string="30000000" />
+    </item>
+    <item name="AllowSynchronousIO">
+      <value string="False" />
+    </item>
+    <item name="TraceIdentifier">
+      <value string="0HMCPG3NQ92AA:00000009" />
+    </item>
+    <item name="IsUpgradableRequest">
+      <value string="False" />
+    </item>
+    <item name="IsUpgraded">
+      <value string="False" />
+    </item>
+    <item name="RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="RemotePort">
+      <value string="63524" />
+    </item>
+    <item name="LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="Scheme">
+      <value string="https" />
+    </item>
+    <item name="Method">
+      <value string="Get" />
+    </item>
+    <item name="MethodText">
+      <value string="GET" />
+    </item>
+    <item name="Path">
+      <value string="/Admin/AdminProps" />
+    </item>
+    <item name="QueryString">
+      <value string="" />
+    </item>
+    <item name="RawTarget">
+      <value string="/Admin/AdminProps" />
+    </item>
+    <item name="HttpVersion">
+      <value string="HTTP/2" />
+    </item>
+    <item name="Header_:authority">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_:method">
+      <value string="GET" />
+    </item>
+    <item name="Header_:path">
+      <value string="/Admin/AdminProps" />
+    </item>
+    <item name="Header_:scheme">
+      <value string="https" />
+    </item>
+    <item name="Header_Accept">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="Header_Accept-Encoding">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="Header_Accept-Language">
+      <value string="ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7" />
+    </item>
+    <item name="Header_Cookie">
+      <value string=".AspNetCore.Antiforgery.ZPX4Iww0iwE=CfDJ8E5vce0TfPtLlAOUyEBH0au_nVYm4RfQRzPVZzwEfwb2I0eugo3YXp2Ab0HrLUbZHfitCtycr-R9EuGziCFSsCrTEOCA0aB6kD4zfJ8S7OGqxumshDZFhaLnkH4Q_JlIdWBlyfuAq8K6eC1BztDPMIE,.AspNetCore.Identity.Application=CfDJ8E5vce0TfPtLlAOUyEBH0avW6pf9YSfDMi9WzGqzmMR6RpzdHo3AVUdiXlmZN8qNy2zZUoW4k6lVuDuhwd7x9Y71otI_VYjCUlSesSvW9CWfwtyvwr45GiDguVYyoh3deT9eW4UGOBwD84TgvcrF5Ov5pP3Ueh2VCOhyC4NbSOdQkjG9qkuh32rugcG2z3JMoad3OIetRxpd8mZf1JHTcDDyhw-k_4wP2135fdNO0na3ZudXD2tbdjni5Crv81oPjB31OpwMaPK9MY_sf0chf58lKmuDOH8m6sq77rPJFv1kilRuw63eurcwy2Kesn8mNl2L4dl98nHGZBzE92WH-NAvrPb2Bd7r3w6ohsl_rWNm6wPKcdH-esrutxq907HjKkLF8nOvzMNEaWlY-7VFeP4-W2IPAJNfoVnFlQW2-MJeLKC6uzpeulNsO1BzRY64h8taHXB0i54Ri7j6AjYCd-Lhmu2_dDF9vXb1oQ3JU4F7ScvzB6I5hros0itQWBSDzTCSn8DZqrmT1FzFV8GLWX6XY_ksVsd4muh8UfZVCLE8XC4FsyAeGwNEzUbntVHSn-v0rQCi-4f4N7OB5bR4_XUlzfOG2yj9bSJ-MB4Kj1d6VkcP_V9TRkUZ_C-xVKBZ-QHiVolhIUAFQyixvYt47RQZlXjPvfxeAt2LaCmjOEkJhUyH0ydz0CNANoARTxK58PXuQOT5qpVERkjuXGl5dIWidwVu3xkt7KuVeVhPZ2vNMEOvAmbGJo6dWfImIfz9ZV32RXw4xB0G7lr8p-eOK7fFjEpAxqk1n2WNOD99wSllbvxMqzcOrYPBT3owD9QpXmRsCdB-LmlS-NJy7-Q_odVRfCmvxwOANANx1lQIPGnZ" />
+    </item>
+    <item name="Header_Host">
+      <value string="localhost:5001" />
+    </item>
+    <item name="Header_Referer">
+      <value string="https://localhost:5001/Admin" />
+    </item>
+    <item name="Header_User-Agent">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4676.0 Safari/537.36" />
+    </item>
+    <item name="Header_Upgrade-Insecure-Requests">
+      <value string="1" />
+    </item>
+    <item name="Header_sec-ch-ua">
+      <value string="&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;" />
+    </item>
+    <item name="Header_sec-ch-ua-mobile">
+      <value string="?0" />
+    </item>
+    <item name="Header_sec-ch-ua-platform">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="Header_sec-fetch-site">
+      <value string="same-origin" />
+    </item>
+    <item name="Header_sec-fetch-mode">
+      <value string="navigate" />
+    </item>
+    <item name="Header_sec-fetch-user">
+      <value string="?1" />
+    </item>
+    <item name="Header_sec-fetch-dest">
+      <value string="document" />
+    </item>
+    <item name="RequestTrailersAvailable">
+      <value string="True" />
+    </item>
+    <item name="StatusCode">
+      <value string="200" />
+    </item>
+    <item name="ResponseHeaders_Cache-Control">
+      <value string="no-cache, no-store" />
+    </item>
+    <item name="ResponseHeaders_Pragma">
+      <value string="no-cache" />
+    </item>
+    <item name="ResponseHeaders_Content-Type">
+      <value string="text/html; charset=utf-8" />
+    </item>
+    <item name="ResponseHeaders_Set-Cookie">
+      <value string=".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly" />
+    </item>
+    <item name="HasResponseStarted">
+      <value string="False" />
+    </item>
+    <item name="HasFlushedHeaders">
+      <value string="False" />
+    </item>
+    <item name="HasResponseCompleted">
+      <value string="False" />
+    </item>
+    <item name="Connection_Id">
+      <value string="0HMCPG3NQ92AA" />
+    </item>
+    <item name="Connection_RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_RemotePort">
+      <value string="63524" />
+    </item>
+    <item name="Connection_LocalIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_LocalPort">
+      <value string="5001" />
+    </item>
+    <item name="HttpStatusCode">
+      <value string="500" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name=".AspNetCore.Antiforgery.ZPX4Iww0iwE">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0au_nVYm4RfQRzPVZzwEfwb2I0eugo3YXp2Ab0HrLUbZHfitCtycr-R9EuGziCFSsCrTEOCA0aB6kD4zfJ8S7OGqxumshDZFhaLnkH4Q_JlIdWBlyfuAq8K6eC1BztDPMIE" />
+    </item>
+    <item name=".AspNetCore.Identity.Application">
+      <value string="CfDJ8E5vce0TfPtLlAOUyEBH0avW6pf9YSfDMi9WzGqzmMR6RpzdHo3AVUdiXlmZN8qNy2zZUoW4k6lVuDuhwd7x9Y71otI_VYjCUlSesSvW9CWfwtyvwr45GiDguVYyoh3deT9eW4UGOBwD84TgvcrF5Ov5pP3Ueh2VCOhyC4NbSOdQkjG9qkuh32rugcG2z3JMoad3OIetRxpd8mZf1JHTcDDyhw-k_4wP2135fdNO0na3ZudXD2tbdjni5Crv81oPjB31OpwMaPK9MY_sf0chf58lKmuDOH8m6sq77rPJFv1kilRuw63eurcwy2Kesn8mNl2L4dl98nHGZBzE92WH-NAvrPb2Bd7r3w6ohsl_rWNm6wPKcdH-esrutxq907HjKkLF8nOvzMNEaWlY-7VFeP4-W2IPAJNfoVnFlQW2-MJeLKC6uzpeulNsO1BzRY64h8taHXB0i54Ri7j6AjYCd-Lhmu2_dDF9vXb1oQ3JU4F7ScvzB6I5hros0itQWBSDzTCSn8DZqrmT1FzFV8GLWX6XY_ksVsd4muh8UfZVCLE8XC4FsyAeGwNEzUbntVHSn-v0rQCi-4f4N7OB5bR4_XUlzfOG2yj9bSJ-MB4Kj1d6VkcP_V9TRkUZ_C-xVKBZ-QHiVolhIUAFQyixvYt47RQZlXjPvfxeAt2LaCmjOEkJhUyH0ydz0CNANoARTxK58PXuQOT5qpVERkjuXGl5dIWidwVu3xkt7KuVeVhPZ2vNMEOvAmbGJo6dWfImIfz9ZV32RXw4xB0G7lr8p-eOK7fFjEpAxqk1n2WNOD99wSllbvxMqzcOrYPBT3owD9QpXmRsCdB-LmlS-NJy7-Q_odVRfCmvxwOANANx1lQIPGnZ" />
+    </item>
+  </cookies>
+</error>
