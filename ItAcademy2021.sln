@@ -26,12 +26,15 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.Web", "Jobit.Web\Jobit.Web.csproj", "{919C793C-75D7-4834-B505-6B1098B5B832}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jobit", "Jobit", "{8C02FCAD-22D6-4952-B918-EA558B0E1387}"
+	ProjectSection(SolutionItems) = preProject
+		GitFlow branches.md = GitFlow branches.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobit.DAL", "Jobit.DAL\Jobit.DAL.csproj", "{9758B5DD-77C7-45C2-9CB2-330DC55979D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.DAL", "Jobit.DAL\Jobit.DAL.csproj", "{9758B5DD-77C7-45C2-9CB2-330DC55979D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobit.BLL", "Jobit.BLL\Jobit.BLL.csproj", "{04EA3394-C326-45C1-80C1-8204B20B258E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.BLL", "Jobit.BLL\Jobit.BLL.csproj", "{04EA3394-C326-45C1-80C1-8204B20B258E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobit.Aggregator", "Jobit.Aggregator\Jobit.Aggregator.csproj", "{E56C7962-EFCC-424C-86CA-886B46AC6DB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.Aggregator", "Jobit.Aggregator\Jobit.Aggregator.csproj", "{E56C7962-EFCC-424C-86CA-886B46AC6DB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
