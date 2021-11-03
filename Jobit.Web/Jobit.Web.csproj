@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Database\EFtips.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ElmahCore" Version="2.0.7" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
     <PackageReference Include="FormHelper" Version="4.0.1" />

@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.Web", "Jobit.Web\Jobi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jobit", "Jobit", "{8C02FCAD-22D6-4952-B918-EA558B0E1387}"
 	ProjectSection(SolutionItems) = preProject
+		EFcommands.md = EFcommands.md
 		GitFlow branches.md = GitFlow branches.md
+		UsefulRefs.md = UsefulRefs.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobit.DAL", "Jobit.DAL\Jobit.DAL.csproj", "{9758B5DD-77C7-45C2-9CB2-330DC55979D8}"
